@@ -1,0 +1,49 @@
+:root {
+    --ink-black: #01161e;
+    --dark-teal: #124559;
+    --air-force-blue: #3d6b7a;  
+    --ash-grey: #7a9a8f;        
+    --beige: #eff6e0;
+
+    --fundo-principal: var(--beige);
+    --shadow-grey: var(--ink-black);
+    --nav-bg: rgba(239, 246, 224, 0.85);
+
+    --texto-principal: var(--ink-black);
+    --texto-secundario: var(--dark-teal);
+    --nav-text: var(--ink-black);
+    --nav-text-muted: var(--air-force-blue);
+    --white: #ffffff;
+
+    --cor-destaque: var(--dark-teal);
+    --cor-botao: var(--dark-teal);
+    --nav-hover: var(--air-force-blue);
+    --soft-periwinkle: var(--air-force-blue);
+    --apricot-cream: var(--dark-teal);
+    --desert-sand: var(--ash-grey);
+    --cor-perigo: #b34700;
+
+    --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    --shadow-premium: 0 8px 32px 0 rgba(1, 22, 30, 0.08);
+    --shadow-strong: 0 30px 70px rgba(1, 22, 30, 0.2);
+    --cor-sombra: rgba(1, 22, 30, 0.1);
+    --glass-border: 1px solid rgba(18, 69, 89, 0.15);
+
+    --white-05: rgba(255, 255, 255, 0.05);
+    --white-10: rgba(255, 255, 255, 0.1);
+    --white-40: rgba(255, 255, 255, 0.4);
+    --white-50: rgba(255, 255, 255, 0.5);
+    --white-80: rgba(255, 255, 255, 0.8);
+    --grey-overlay: rgba(42, 42, 52, 0.8);
+    --dark-overlay: rgba(0, 0, 0, 0.5);
+    --light-border: rgba(139, 139, 199, 0.2);
+    --light-shadow: rgba(139, 139, 199, 0.3);
+
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --blur-effect: blur(15px) saturate(150%);
+
+    --glass-forte-bg: rgba(255, 255, 255, 0.8);
+    --glass-forte-blur: blur(20px) saturate(180%);
+    --glass-forte-border: 1px solid rgba(255, 255, 255, 0.5);
+    --glass-forte-shadow: 0 10px 40px -10px rgba(18, 69, 89, 0.15);
+}

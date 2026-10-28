@@ -1,0 +1,280 @@
+.victoria-splash {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(245, 248, 247, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    overflow: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+.victoria-splash--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.victoria-splash::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background:
+        radial-gradient(
+            ellipse at 30% 20%,
+            rgba(174, 195, 176, 0.2) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 70% 80%,
+            rgba(89, 131, 146, 0.12) 0%,
+            transparent 50%
+        );
+    animation: splash-bg-drift 6s ease-in-out infinite alternate;
+}
+
+@keyframes splash-bg-drift {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(3%, -2%) rotate(3deg);
+    }
+}
+
+.splash-logo-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    animation: splash-logo-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes splash-logo-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.6) translateY(30px);
+        filter: blur(8px);
+    }
+
+    60% {
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.splash-logo-img {
+    width: 180px;
+    height: auto;
+    filter: drop-shadow(0 0 40px rgba(89, 131, 146, 0.3));
+}
+
+.splash-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #124559;
+    opacity: 0;
+    animation: splash-title-in 0.8s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes splash-title-in {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+        letter-spacing: 20px;
+        filter: blur(4px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: 6px;
+        filter: blur(0);
+    }
+}
+
+.splash-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: #01161e;
+    opacity: 0.6;
+    margin-top: -8px;
+    opacity: 0;
+    animation: splash-subtitle-in 0.6s 0.7s ease-out forwards;
+}
+
+@keyframes splash-subtitle-in {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 0.6;
+        transform: translateY(0);
+    }
+}
+
+.splash-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.splash-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--air-force-blue, #598392);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particle-float 3s ease-in-out infinite;
+}
+
+@keyframes particle-float {
+    0% {
+        opacity: 0;
+        transform: translateY(0) translateX(0) scale(1);
+    }
+
+    20% {
+        opacity: 0.5;
+        transform: translateY(-25px) translateX(calc(var(--sway-x, 0px) * 0.4))
+            scale(0.9);
+    }
+
+    50% {
+        opacity: 0.35;
+        transform: translateY(-60px) translateX(calc(var(--sway-x, 0px) * 0.8))
+            scale(0.7);
+    }
+
+    80% {
+        opacity: 0.15;
+        transform: translateY(-95px) translateX(calc(var(--sway-x, 0px) * 0.5))
+            scale(0.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-120px) translateX(0) scale(0.3);
+    }
+}
+
+.splash-ring {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.splash-ring--spinner {
+    width: 300px;
+    height: 300px;
+    background: conic-gradient(
+        rgba(89, 131, 146, 0.5) 0%,
+        rgba(89, 131, 146, 0.15) 20%,
+        transparent 40%,
+        rgba(89, 131, 146, 0.25) 70%,
+        rgba(89, 131, 146, 0.55) 85%,
+        rgba(89, 131, 146, 0.15) 100%
+    );
+    mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 2px),
+        #000 calc(100% - 1px)
+    );
+    -webkit-mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 2px),
+        #000 calc(100% - 1px)
+    );
+    animation:
+        splash-spinner-grow 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+        splash-spinner-rotate 2s 0.4s linear infinite;
+    opacity: 0;
+}
+
+@keyframes splash-spinner-grow {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.4);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes splash-spinner-rotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.splash-ring--glow {
+    width: 400px;
+    height: 400px;
+    border: 1px solid rgba(89, 131, 146, 0.2);
+    animation: splash-glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes splash-glow-pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.08;
+    }
+
+    100% {
+        transform: scale(0.8);
+        opacity: 0.3;
+    }
+}
+
+.victoria-ready .hero-section,
+.victoria-ready .content-wrapper,
+
+.victoria-ready main:not(.victoria-splash) {
+    animation: victoria-content-in 0.9s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes victoria-content-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+        filter: blur(4px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+    }
+}

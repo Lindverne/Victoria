@@ -1,0 +1,366 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+    overflow-x: hidden;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.container-login-centralizado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card-login-split-flutuante {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(89, 131, 146, 0.2);
+    animation: fadeInCard 0.8s ease-out;
+
+    border: var(--glass-border) !important;
+}
+
+@keyframes fadeInCard {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.split-coluna-visual-card {
+    flex: 1;
+    background:
+        linear-gradient(to bottom, var(--dark-overlay), rgba(0, 0, 0, 0.2)),
+        url("../../img/pages/login/banner-login.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    color: white;
+    max-width: 35%;
+    min-height: 600px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.bloco-testemunho {
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    text-align: left;
+
+    background: var(--glass-bg) !important;
+    backdrop-filter: var(--blur-effect) !important;
+    -webkit-backdrop-filter: var(--blur-effect) !important;
+    border: var(--glass-border) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.bloco-testemunho i {
+    font-size: 2em;
+    color: var(--soft-periwinkle);
+    margin-bottom: 10px;
+}
+
+.bloco-testemunho h3 {
+    font-size: 1.3em;
+    font-style: italic;
+    line-height: 1.5;
+    color: white;
+    margin: 0;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.autor-testemunho {
+    font-weight: bold;
+    font-size: 1em;
+    margin-top: 15px;
+    color: var(--apricot-cream);
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.split-coluna-formulario-card {
+    flex: 1;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    background: var(--glass-bg) !important;
+    backdrop-filter: var(--blur-effect) !important;
+    -webkit-backdrop-filter: var(--blur-effect) !important;
+}
+
+.link-voltar {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: var(--soft-periwinkle);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.link-voltar:hover {
+    color: var(--apricot-cream);
+    transform: translateX(-5px);
+}
+
+.header-login {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(89, 131, 146, 0.2);
+}
+
+.logo-pequena {
+    height: 80px;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.header-login h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: var(--ink-black);
+    font-weight: 800;
+}
+
+.header-login p {
+    margin: 0;
+    color: var(--dark-teal);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.campo-form-agrupado {
+    text-align: left;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.campo-form-agrupado label {
+    display: block;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: var(--ink-black);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.campo-form-agrupado input {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid rgba(89, 131, 146, 0.2);
+    border-radius: 10px;
+    font-size: 1em;
+    background: rgba(255, 255, 255);
+    color: var(--ink-black);
+    display: block;
+    transition: all 0.3s ease;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.campo-form-agrupado input:focus {
+    outline: none;
+    border-color: var(--soft-periwinkle);
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(89, 131, 146, 0.1);
+}
+
+.campo-form-agrupado input {
+    padding-right: 2.2rem;
+}
+
+.campo-form-agrupado .toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 68%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.5);
+    background: transparent;
+    padding: 2px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.campo-form-agrupado .toggle-password:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.campo-form-agrupado input[type="password"]::-ms-reveal,
+.campo-form-agrupado input[type="password"]::-ms-clear,
+.campo-form-agrupado
+
+    input[type="password"]::-webkit-textfield-decoration-container {
+    display: none !important;
+}
+
+.opcoes-adicionais-central {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.link-opcoes {
+    color: var(--soft-periwinkle);
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.link-opcoes:hover {
+    color: var(--dark-teal);
+}
+
+.botao-submit-card {
+    background: var(--ink-black);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 800;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.botao-submit-card:hover {
+    background: var(--dark-teal);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.separador-card {
+    text-align: center;
+    margin: 25px 0;
+    color: var(--dark-teal);
+    font-size: 0.85em;
+    font-weight: bold;
+    position: relative;
+}
+
+.separador-card::before,
+
+.separador-card::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: rgba(89, 131, 146, 0.2);
+}
+
+.separador-card::before {
+    left: 0;
+}
+
+.separador-card::after {
+    right: 0;
+}
+
+.botao-social-card,
+
+.desativado {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid rgba(89, 131, 146, 0.2);
+    border-radius: 10px;
+    background: var(--glass-bg) !important;
+    backdrop-filter: var(--blur-effect) !important;
+    color: var(--ink-black);
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.botao-social-card:hover:not(.desativado) {
+    background: #ffffff;
+    border-color: var(--soft-periwinkle);
+    transform: translateY(-2px);
+}
+
+.desativado {
+    opacity: 0.6;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.badge-em-breve {
+    background: #ffffff;
+    color: var(--soft-periwinkle);
+    font-size: 0.65em;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(139, 139, 199, 0.3);
+    text-transform: uppercase;
+    margin-left: 8px;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.rodape-login-card {
+    margin-top: 35px;
+    font-size: 0.9em;
+    text-align: center;
+    color: var(--dark-teal);
+}
+
+.rodape-login-card a {
+    color: var(--soft-periwinkle);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+@media (max-width: 800px) {
+    .card-login-split-flutuante {
+        max-width: 500px;
+        min-height: auto;
+    }
+
+    .split-coluna-visual-card {
+        display: none;
+    }
+
+    .split-coluna-formulario-card {
+        padding: 40px 30px;
+    }
+}

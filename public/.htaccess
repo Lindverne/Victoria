@@ -1,0 +1,80 @@
+# Victoria - .htaccess
+
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Prevent directory listing
+Options -Indexes
+
+# Redirect non-existent files/directories to 404 page
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ pages/404.php [L,QSA]
+
+# Custom 404 error page
+ErrorDocument 404 /Victoria/public/pages/404.php
+
+# Allow access to static assets
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|pdf)$">
+    Require all granted
+</FilesMatch>
+
+# Cache static assets
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images - 30 days
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/png "access plus 30 days"
+    ExpiresByType image/gif "access plus 30 days"
+    ExpiresByType image/webp "access plus 30 days"
+    ExpiresByType image/x-icon "access plus 365 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+    
+    # Fonts - 30 days
+    ExpiresByType font/woff "access plus 30 days"
+    ExpiresByType font/woff2 "access plus 30 days"
+    ExpiresByType font/ttf "access plus 30 days"
+    ExpiresByType font/eot "access plus 30 days"
+    ExpiresByType application/font-woff "access plus 30 days"
+    ExpiresByType application/font-woff2 "access plus 30 days"
+    
+    # CSS & JS - 1 week
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType text/javascript "access plus 7 days"
+    ExpiresByType application/x-javascript "access plus 7 days"
+    
+    # PDF - 7 days
+    ExpiresByType application/pdf "access plus 7 days"
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Prevent MIME sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions policy
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    
+    # Cache control for static assets
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|pdf)$">
+        Header set Cache-Control "public, max-age=604800, immutable"
+    </FilesMatch>
+    
+    # No cache for HTML/PHP
+    <FilesMatch "\.(html|php)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+</IfModule>

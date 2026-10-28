@@ -1,0 +1,13 @@
+.user-email {
+    text-align: center;
+    width: 100%;
+    display: block;
+    color: var(--white);
+    font-size: 0.85rem;
+    margin: 0 auto;
+}
+
+.category-tag {
+    display: block;
+    text-align: center;
+}

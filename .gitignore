@@ -1,0 +1,68 @@
+# =============================================================
+# Whitelist — só o essencial do repositório entra no git
+# =============================================================
+
+# Ignora TUDO na raiz...
+/*
+
+# ...exceto o núcleo do projeto
+!/api/
+!/public/
+!/tools/
+!/database/
+!/README.md
+!/.gitignore
+
+# =============================================================
+# Exclusões DENTRO das pastas mantidas
+# =============================================================
+
+# Sessões do PHP
+sessions/
+
+# Node.js / Prettier
+node_modules/
+package.json
+package-lock.json
+.prettierrc.json
+
+# Arquivos de sistema e caches
+Thumbs.db
+.DS_Store
+desktop.ini
+*.log
+.php-cs-fixer.cache
+.prettiercache
+stylelint.cache
+
+# IDE
+.vscode/
+.idea/
+*.suo
+
+# Ambiente (credenciais locais)
+.env
+.env.local
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Uploads de notícias (gerados em runtime)
+public/assets/img/pages/noticias/noticia_*.jpg
+public/assets/img/pages/noticias/noticia_*.png
+public/assets/img/pages/noticias/noticia_*.webp
+public/assets/img/pages/noticias/noticia_*.gif
+
+# Screenshots de teste do QA
+public/assets/img/teste-qa-*.png
+
+# Screenshots do navegador (ferramenta de teste)
+browser-screenshots/
+
+# Mnemon Memory
+.remember/
+
+# Arquivos compactados
+*.zip

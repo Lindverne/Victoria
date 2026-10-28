@@ -1,0 +1,38 @@
+.btn-toggle-tema {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: var(--glass-forte-border);
+    background: var(--glass-forte-bg);
+    backdrop-filter: var(--glass-forte-blur);
+    -webkit-backdrop-filter: var(--glass-forte-blur);
+    box-shadow: var(--glass-forte-shadow);
+    color: var(--ink-black);
+    cursor: pointer;
+    margin-right: 12px;
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: var(--transition-smooth);
+}
+
+.btn-toggle-tema:hover {
+    background: var(--soft-periwinkle);
+    color: var(--white);
+    transform: rotate(15deg) scale(1.06);
+}
+
+.btn-toggle-tema:focus-visible {
+    outline: 2px solid var(--air-force-blue);
+    outline-offset: 3px;
+}
+
+.tema-toggle-flutuante {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 990;
+    margin-right: 0;
+}

@@ -1,0 +1,119 @@
+.floating-footer {
+    width: 92%;
+    max-width: 1200px;
+    margin: 80px auto 40px auto;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: var(--ink-black);
+    border: 1px solid rgba(18, 69, 89, 0.1);
+    border-radius: 40px;
+    padding: 60px 40px 30px 40px;
+    box-shadow: var(--shadow-premium);
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    width: 160px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: brightness(1.1);
+    display: block;
+}
+
+.footer-logo-area p {
+    color: var(--nav-text-muted);
+    line-height: 1.6;
+    font-size: 0.85rem;
+    max-width: 250px;
+    font-style: italic;
+    letter-spacing: 0.3px;
+    transition: color 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.footer-contact p {
+    margin-bottom: 12px;
+}
+
+.footer-links h4,
+.footer-social h4,
+
+.footer-contact h4 {
+    color: var(--apricot-cream);
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--dark-teal);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links a i {
+    width: 18px;
+    text-align: center;
+    color: var(--air-force-blue);
+    font-size: 0.95rem;
+    transition: color 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.footer-links a:hover {
+    color: var(--apricot-cream);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--apricot-cream);
+    color: var(--shadow-grey);
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    text-align: center;
+    color: var(--nav-text-muted);
+    font-size: 0.85rem;
+    transition: border-top-color 0.5s cubic-bezier(0.23, 1, 0.32, 1), color 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}

@@ -1,0 +1,63 @@
+@keyframes victoria-modal-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(24px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes victoria-modal-out {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.92) translateY(16px);
+    filter: blur(4px);
+  }
+}
+
+@keyframes victoria-backdrop-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes victoria-backdrop-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.swal-news-modal .swal2-popup {
+  animation: victoria-modal-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+.swal-news-modal.swal2-hide .swal2-popup {
+  animation: victoria-modal-out 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+.swal-news-modal .swal2-backdrop {
+  animation: victoria-backdrop-in 0.35s ease forwards !important;
+}
+
+.swal-news-modal.swal2-hide .swal2-backdrop {
+  animation: victoria-backdrop-out 0.3s ease forwards !important;
+}
+
+.swal-news-modal .swal2-close {
+  animation: victoria-modal-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
