@@ -785,39 +785,6 @@ Victoria/
 
 <br>
 
-<h2 id="-colaboradores" align="center">🤝 Colaboradores</h2>
-
-<p align="center">
-  Agradecimento especial aos colaboradores que contribuíram diretamente para este repositório:
-</p>
-
-<br>
-
-<table align="center">
-  <tr>
-    <td align="center" width="50%" style="border: none;">
-      <a href="https://github.com/Lindverne" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-        <img src="https://github.com/Lindverne.png" width="100" height="100" alt="Lindverne" style="border-radius: 50%; border: 2px solid #124559;">
-        <br>
-        <strong>Lindverne</strong>
-      </a>
-    </td>
-    <td align="center" width="50%" style="border: none;">
-      <a href="https://github.com/julio3323" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-        <img src="https://github.com/julio3323.png" width="100" height="100" alt="julio3323" style="border-radius: 50%; border: 2px solid #124559;">
-        <br>
-        <strong>julio3323</strong>
-      </a>
-    </td>
-  </tr>
-</table>
-
-<br>
-
----
-
-<br>
-
 <p align="center">
   <img src="public/assets/img/logos/logo-victoria.webp" width="120" alt="Victoria">
 </p>
