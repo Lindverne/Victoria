@@ -125,10 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cropperWallpaper.destroy();
     }
 
-    if (urlImagemSegura(source))
-    {
-      imageElementWallpaper.src = source;
-    }
+    definirSrcSeguro(imageElementWallpaper, source);
 
     if (cropperContainerWallpaper)
     {

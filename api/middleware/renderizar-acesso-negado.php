@@ -20,7 +20,7 @@ function renderizarAcessoNegado(string $mensagem = 'Você não tem permissão pa
         <style>
             body {
                 margin: 0; min-height: 100vh;
-                background: #eff6e0;
+                background: 
                 font-family: 'Montserrat', sans-serif;
                 display: flex; align-items: center; justify-content: center;
             }
@@ -28,25 +28,25 @@ function renderizarAcessoNegado(string $mensagem = 'Você não tem permissão pa
             .swal2-popup {
                 background: rgba(255, 255, 255, 0.95) !important;
                 backdrop-filter: blur(20px) !important;
-                border: 1px solid #598392 !important;
+                border: 1px solid 
                 border-radius: 30px !important;
-                color: #01161e !important;
+                color: 
                 font-family: 'Montserrat', sans-serif !important;
             }
 
             .swal2-title {
-                color: #124559 !important;
+                color: 
                 font-weight: 800 !important;
                 font-family: 'Montserrat', sans-serif !important;
             }
 
             .swal2-html-container {
-                color: #01161e !important;
+                color: 
                 font-family: 'Montserrat', sans-serif !important;
             }
 
             .swal2-confirm {
-                background: #598392 !important;
+                background: 
                 font-family: 'Montserrat', sans-serif !important;
                 border-radius: 50px !important;
                 padding: 12px 35px !important;
@@ -63,8 +63,8 @@ function renderizarAcessoNegado(string $mensagem = 'Você não tem permissão pa
                 padding: 12px 35px !important;
                 font-weight: 700 !important;
                 font-size: 0.8rem !important;
-                border: 2px solid #aec3b0 !important;
-                color: #8a9a8b !important;
+                border: 2px solid 
+                color: 
             }
 
             .swal2-cancel:hover {
@@ -72,11 +72,11 @@ function renderizarAcessoNegado(string $mensagem = 'Você não tem permissão pa
             }
 
             .swal2-icon {
-                border-color: #598392 !important;
+                border-color: 
             }
 
             .swal2-icon .swal2-icon-content {
-                color: #598392 !important;
+                color: 
             }
 
             [data-theme='dark'] {
@@ -84,17 +84,17 @@ function renderizarAcessoNegado(string $mensagem = 'Você não tem permissão pa
             }
 
             [data-theme='dark'] body {
-                background: #0a141b;
+                background: 
             }
 
             [data-theme='dark'] .swal2-popup {
                 background: rgba(15, 27, 36, 0.97) !important;
                 border: 1px solid rgba(134, 179, 189, 0.25) !important;
-                color: #eff6e0 !important;
+                color: 
             }
 
             [data-theme='dark'] .swal2-title {
-                color: #eff6e0 !important;
+                color: 
             }
 
             [data-theme='dark'] .swal2-html-container {
@@ -102,12 +102,12 @@ function renderizarAcessoNegado(string $mensagem = 'Você não tem permissão pa
             }
 
             [data-theme='dark'] .swal2-confirm {
-                background: #3d6b7a !important;
+                background: 
             }
 
             [data-theme='dark'] .swal2-cancel {
                 border: 2px solid rgba(134, 179, 189, 0.4) !important;
-                color: #86b3bd !important;
+                color: 
             }
 
             [data-theme='dark'] .swal2-cancel:hover {

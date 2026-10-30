@@ -41,7 +41,7 @@ function exibirBannerConsole()
       desenharImagem(devtools, 275, 275);
 
       console.log(
-        "%c 💧 Victória - Versão 0.9.2 - Subaru",
+        "%c 💧 Victória - Versão 0.9.7 - Rem",
         "color: #eff6e0; font-weight: bold; font-size: 13px; padding-left: 3px; letter-spacing: 0.5px;",
       );
     }
@@ -49,7 +49,7 @@ function exibirBannerConsole()
     catch (erroBanner)
     {
       console.log(
-        "%cVictória - Versão 0.9.2 - Subaru",
+        "%cVictória - Versão 0.9.7 - Rem",
         "color: #eff6e0; font-weight: bold; font-size: 13px;",
       );
     }
@@ -441,10 +441,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (imagemParaCortar)
     {
 
-      if (urlImagemSegura(imagemSrc))
-      {
-        imagemParaCortar.src = imagemSrc;
-      }
+      definirSrcSeguro(imagemParaCortar, imagemSrc);
 
       cropperInstance = new Cropper(imagemParaCortar, {
         aspectRatio: 1,

@@ -1,3 +1,4 @@
+/*
 const CACHE_NAME = "victoria-v2.4";
 const STATIC_ASSETS = [
   "./",
@@ -84,3 +85,4 @@ self.addEventListener("fetch", (event) => {
     }),
   );
 });
+*/

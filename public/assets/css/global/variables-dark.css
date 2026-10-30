@@ -249,6 +249,54 @@ body::before {
     color: #0a141b;
 }
 
+[data-theme='dark'] .btn-sec {
+    background-color: rgba(134, 179, 189, 0.15);
+    color: var(--ink-black);
+    border-color: rgba(134, 179, 189, 0.2);
+}
+
+[data-theme='dark'] .btn-sec:hover {
+    background-color: var(--dark-teal);
+    color: #0a141b;
+}
+
+[data-theme='dark'] .team-social a[href*="github"],
+[data-theme='dark'] .team-social a[href*="github.com"],
+[data-theme='dark'] .team-social a[data-rede="GitHub"] {
+    background: #24292e;
+    color: var(--white);
+}
+
+[data-theme='dark'] .team-social a[href*="linkedin"],
+[data-theme='dark'] .team-social a[href*="linkedin.com"],
+[data-theme='dark'] .team-social a[data-rede="LinkedIn"] {
+    background: #0077b5;
+    color: var(--white);
+}
+
+[data-theme='dark'] .team-social a[href^="#"]:not([data-rede="GitHub"]):not([data-rede="LinkedIn"]) {
+    background: rgba(134, 179, 189, 0.15);
+    color: var(--ink-black);
+    border-color: rgba(134, 179, 189, 0.2);
+}
+
+[data-theme='dark'] .team-social a[href*="github"]:hover,
+[data-theme='dark'] .team-social a[href*="github.com"]:hover,
+[data-theme='dark'] .team-social a[data-rede="GitHub"]:hover {
+    background: #1a1e23;
+}
+
+[data-theme='dark'] .team-social a[href*="linkedin"]:hover,
+[data-theme='dark'] .team-social a[href*="linkedin.com"]:hover,
+[data-theme='dark'] .team-social a[data-rede="LinkedIn"]:hover {
+    background: #005582;
+}
+
+[data-theme='dark'] .team-social a[href^="#"]:not([data-rede="GitHub"]):not([data-rede="LinkedIn"]):hover {
+    background: var(--dark-teal);
+    color: #0a141b;
+}
+
 [data-theme='dark'] .footer-bottom {
     border-top-color: rgba(134, 179, 189, 0.15);
 }

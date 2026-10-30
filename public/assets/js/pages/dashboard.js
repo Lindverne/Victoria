@@ -930,15 +930,7 @@ function carregarImagemNoCropperHidrometro(origem)
     });
   };
 
-  if (urlImagemSegura(origem))
-  {
-    imagem.src = origem;
-  }
-
-  else
-  {
-    avisarFalha();
-  }
+  definirSrcSeguro(imagem, origem) || avisarFalha();
 }
 
 function processarArquivoHidrometro(arquivo)

@@ -65,10 +65,7 @@ function carregarImagemNoCropperNews(source)
 
   const img = document.getElementById("imagem-para-cortar-news");
 
-  if (urlImagemSegura(source))
-  {
-    img.src = source;
-  }
+  definirSrcSeguro(img, source);
 
   const container = document.getElementById("containerCropperNewsImagem");
 

@@ -14,7 +14,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/status-Em%20Andamento-008FFB?style=for-the-badge&logo=databricks&logoColor=white" alt="Status">
-  <img src="https://img.shields.io/badge/Vers%C3%A3o%200.9.5%20-%20Subaru-124559?style=for-the-badge&logo=semver&logoColor=white" alt="Versão">
+  <img src="https://img.shields.io/badge/Vers%C3%A3o%200.9.7%20-%20Rem-124559?style=for-the-badge&logo=semver&logoColor=white" alt="Versão">
   <img src="https://img.shields.io/badge/%C3%9Altima%20Atualiza%C3%A7%C3%A3o-2026-124559?style=for-the-badge&logo=github&logoColor=white" alt="Última Atualização">
 </p>
 
@@ -70,7 +70,7 @@
 
 <p align="center">
   <blockquote>
-    <strong>Versão:</strong> Versão 0.9.5 - Subaru<br>
+    <strong>Versão:</strong> Versão 0.9.7 - Rem<br>
     <strong>Última Atualização:</strong> Outubro de 2026<br>
     <strong>Status:</strong> Em Andamento
   </blockquote>
@@ -778,6 +778,39 @@ Victoria/
 <p align="center">
   <em>Agradecemos também a todos aqueles que participaram indiretamente, seja nas pesquisas de campo, nos momentos difíceis ou nas apresentações. E agradecemos principalmente a Deus, pela oportunidade de estarmos fazendo um trabalho com essa equipe maravilhosa ❤️</em>
 </p>
+
+<br>
+
+---
+
+<br>
+
+<h2 id="-colaboradores" align="center">🤝 Colaboradores</h2>
+
+<p align="center">
+  Agradecimento especial aos colaboradores que contribuíram diretamente para este repositório:
+</p>
+
+<br>
+
+<table align="center">
+  <tr>
+    <td align="center" width="50%" style="border: none;">
+      <a href="https://github.com/Lindverne" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+        <img src="https://github.com/Lindverne.png" width="100" height="100" alt="Lindverne" style="border-radius: 50%; border: 2px solid #124559;">
+        <br>
+        <strong>Lindverne</strong>
+      </a>
+    </td>
+    <td align="center" width="50%" style="border: none;">
+      <a href="https://github.com/julio3323" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+        <img src="https://github.com/julio3323.png" width="100" height="100" alt="julio3323" style="border-radius: 50%; border: 2px solid #124559;">
+        <br>
+        <strong>julio3323</strong>
+      </a>
+    </td>
+  </tr>
+</table>
 
 <br>
 
