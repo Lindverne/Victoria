@@ -1,7 +1,7 @@
 "use strict";
 
 import { ADMIN_API, escapeHtml } from "./admin-utils.js";
-import { urlImagemSegura } from "../../utils/url-segura.js";
+import { urlImagemSegura, definirSrcSeguro } from "../../utils/url-segura.js";
 
 const NOTICIAS_API = window.location.pathname.includes("/pages/")
   ? "../../api/noticias"
@@ -452,6 +452,13 @@ export function abrirModalNoticia(dados)
     cancelButtonColor: "#aec3b0",
 
     didOpen: () => {
+      const backdrop = document.querySelector(".swal2-backdrop");
+
+      if (backdrop)
+      {
+        backdrop.setAttribute("style", "background: rgba(1, 22, 30, 0.55) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important;");
+      }
+
       const btnImg = document.getElementById("btnSelecionarImagem");
 
       if (btnImg)

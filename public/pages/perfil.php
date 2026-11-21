@@ -240,28 +240,34 @@ require_once dirname(__DIR__) . '/components/footer.php';
                 <button type="submit" form="formEditar" class="btn-salvar">Salvar Alterações</button>
             </div>
 
+            <button class="btn-editar-wallpaper-mobile" id="btnEditarWallpaperMobile">
+                <i class="fas fa-image"></i> Alterar Wallpaper
+            </button>
+
             <div class="modal-secao">
                 <div class="modal-secao-titulo">
                     <i class="fas fa-user-cog"></i> Alterar Cadastro
                 </div>
                 <div class="cadastro-sub">
-                    <div class="cadastro-block">
-                        <div class="cadastro-block-title">
-                            <i class="fas fa-envelope"></i>
-                            Mudar E-mail
+                    <form id="formMudarEmail" novalidate>
+                        <div class="cadastro-block">
+                            <div class="cadastro-block-title">
+                                <i class="fas fa-envelope"></i>
+                                Mudar E-mail
+                            </div>
+                            <div class="form-group">
+                                <label for="cadastroEmail">Novo E-mail</label>
+                                <input type="email" id="cadastroEmail" placeholder="seu@email.com" maxlength="100">
+                            </div>
+                            <div class="form-group">
+                                <label for="cadastroSenhaAtual">Senha Atual</label>
+                                <input type="password" id="cadastroSenhaAtual" placeholder="Digite sua senha atual" autocomplete="off">
+                            </div>
+                            <button type="button" class="btn-alterar-senha" id="btnAlterarEmail">
+                                <i class="fas fa-check"></i> Mudar E-mail
+                            </button>
                         </div>
-                        <div class="form-group">
-                            <label for="cadastroEmail">Novo E-mail</label>
-                            <input type="email" id="cadastroEmail" placeholder="seu@email.com" maxlength="100">
-                        </div>
-                        <div class="form-group">
-                            <label for="cadastroSenhaAtual">Senha Atual</label>
-                            <input type="password" id="cadastroSenhaAtual" placeholder="Digite sua senha atual" autocomplete="off">
-                        </div>
-                        <button type="button" class="btn-alterar-senha" id="btnAlterarEmail">
-                            <i class="fas fa-check"></i> Mudar E-mail
-                        </button>
-                    </div>
+                    </form>
 
                     <div class="cadastro-block">
                         <div class="cadastro-block-title">
@@ -275,23 +281,25 @@ require_once dirname(__DIR__) . '/components/footer.php';
                             </span>
                             <i class="fas fa-chevron-down senha-toggle-icon" id="senhaToggleIcon"></i>
                         </div>
-                        <div class="senha-fields" id="senhaFields">
-                            <div class="form-group">
-                                <label for="editSenhaAtual">Senha Atual</label>
-                                <input type="password" id="editSenhaAtual" placeholder="Digite sua senha atual" autocomplete="off">
+                        <form id="formAlterarSenha" novalidate>
+                            <div class="senha-fields" id="senhaFields">
+                                <div class="form-group">
+                                    <label for="editSenhaAtual">Senha Atual</label>
+                                    <input type="password" id="editSenhaAtual" placeholder="Digite sua senha atual" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label for="editNovaSenha">Nova Senha</label>
+                                    <input type="password" id="editNovaSenha" placeholder="Mínimo de 6 caracteres" autocomplete="off" minlength="6">
+                                </div>
+                                <div class="form-group">
+                                    <label for="editConfirmarSenha">Confirmar Nova Senha</label>
+                                    <input type="password" id="editConfirmarSenha" placeholder="Repita a nova senha" autocomplete="off" minlength="6">
+                                </div>
+                                <button type="button" class="btn-alterar-senha" id="btnAlterarSenha">
+                                    <i class="fas fa-check"></i> Alterar Senha
+                                </button>
                             </div>
-                            <div class="form-group">
-                                <label for="editNovaSenha">Nova Senha</label>
-                                <input type="password" id="editNovaSenha" placeholder="Mínimo de 6 caracteres" autocomplete="off" minlength="6">
-                            </div>
-                            <div class="form-group">
-                                <label for="editConfirmarSenha">Confirmar Nova Senha</label>
-                                <input type="password" id="editConfirmarSenha" placeholder="Repita a nova senha" autocomplete="off" minlength="6">
-                            </div>
-                            <button type="button" class="btn-alterar-senha" id="btnAlterarSenha">
-                                <i class="fas fa-check"></i> Alterar Senha
-                            </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

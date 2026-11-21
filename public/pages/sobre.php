@@ -131,7 +131,7 @@ $heroSubtitle = 'Nossa Essência';
                         <h3>Heitor Riquena Cirilo Muniz</h3>
                         <span class="team-role">Algoritmo do Cálculo de Água</span>
                         <div class="team-social">
-                            <a href="#" class="perfil-futuro" data-nome="Heitor Riquena Cirilo Muniz" data-rede="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/Acranom" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
                             <a href="#" class="perfil-futuro" data-nome="Heitor Riquena Cirilo Muniz" data-rede="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>

@@ -4,6 +4,13 @@ const API_BASE = window.location.pathname.includes("/pages/")
 
 const USER_KEY = "victoria_user";
 
+function obterCsrfToken()
+{
+  const meta = document.querySelector('meta[name="csrf-token"]');
+
+  return meta ? meta.getAttribute("content") : null;
+}
+
 export const Auth = (() => {
 
   const getCurrentUser = () => {
@@ -83,9 +90,13 @@ export const Auth = (() => {
   const login = async (email, senha) => {
     try
     {
+      const csrfToken = obterCsrfToken();
+      const headers = { "Content-Type": "application/json" };
+      if (csrfToken) headers["X-CSRF-Token"] = csrfToken;
+
       const res = await fetch(`${API_BASE}/auth/login.php`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         credentials: "include",
         body: JSON.stringify({ email, senha }),
       });
@@ -109,9 +120,13 @@ export const Auth = (() => {
   const cadastro = async (nome, email, senha) => {
     try
     {
+      const csrfToken = obterCsrfToken();
+      const headers = { "Content-Type": "application/json" };
+      if (csrfToken) headers["X-CSRF-Token"] = csrfToken;
+
       const res = await fetch(`${API_BASE}/auth/cadastro.php`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         credentials: "include",
         body: JSON.stringify({ nome, email, senha }),
       });
@@ -153,9 +168,13 @@ export const Auth = (() => {
     data.id = user.id;
     try
     {
+      const csrfToken = obterCsrfToken();
+      const headers = { "Content-Type": "application/json" };
+      if (csrfToken) headers["X-CSRF-Token"] = csrfToken;
+
       const res = await fetch(`${API_BASE}/usuarios/atualizacao.php`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         credentials: "include",
         body: JSON.stringify(data),
       });

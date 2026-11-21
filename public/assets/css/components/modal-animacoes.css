@@ -61,3 +61,23 @@
 .swal-news-modal .swal2-close {
   animation: victoria-modal-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+.swal2-backdrop.swal2-backdrop-news {
+  position: fixed !important;
+  inset: 0 !important;
+  display: block !important;
+  opacity: 1 !important;
+  background: rgba(1, 22, 30, 0.55) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+body.swal2-news-open .swal2-backdrop.swal2-backdrop-news {
+  position: fixed !important;
+  inset: 0 !important;
+  display: block !important;
+  opacity: 1 !important;
+  background: rgba(1, 22, 30, 0.55) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}

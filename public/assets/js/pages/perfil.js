@@ -1,5 +1,19 @@
 import { Auth } from "../auth.js";
-import { urlImagemSegura } from "../utils/url-segura.js";
+import { urlImagemSegura, definirSrcSeguro } from "../utils/url-segura.js";
+
+const DOMPurify = window.DOMPurify;
+
+function obterCsrfToken()
+{
+  const meta = document.querySelector('meta[name="csrf-token"]');
+
+  return meta ? meta.getAttribute("content") : null;
+}
+
+function sanitizarHtml(html)
+{
+  return DOMPurify.sanitize(html);
+}
 
 const API_BASE = window.location.pathname.includes("/pages/")
   ? "../../api"
@@ -88,6 +102,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btnEditarBanner)
   {
     btnEditarBanner.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      if (modalWallpaper) modalWallpaper.classList.add("ativo");
+    });
+  }
+
+  const btnEditarWallpaperMobile = document.getElementById("btnEditarWallpaperMobile");
+
+  if (btnEditarWallpaperMobile)
+  {
+    btnEditarWallpaperMobile.addEventListener("click", (e) => {
       e.stopPropagation();
 
       if (modalWallpaper) modalWallpaper.classList.add("ativo");
@@ -991,7 +1016,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!statusArduino) return;
 
-    let isOnline = false;
+    let status = 'nao_configurado';
+    let lastHeartbeat = null;
 
     try
     {
@@ -1002,35 +1028,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (json.success)
       {
-        isOnline = Boolean(json.online);
+        status = json.status;
+        lastHeartbeat = json.last_heartbeat;
       }
     }
 
     catch (erroArduino)
     {
-      isOnline = false;
+      status = 'nao_configurado';
     }
 
-    const statusText = isOnline ? "Online" : "Offline";
-    const statusColor = isOnline ? "#27ae60" : "#e74c3c";
-    const statusIcon = isOnline ? "fa-check-circle" : "fa-times-circle";
+    const statusConfig =
+    {
+      online:          { texto: "Online",      cor: "#27ae60", icone: "fa-check-circle" },
+      offline:         { texto: "Offline",     cor: "#e74c3c", icone: "fa-times-circle" },
+      nao_configurado: { texto: "Não configurado", cor: "#95a5a6", icone: "fa-question-circle" },
+    };
 
-    statusArduino.innerHTML = `
+    const cfg = statusConfig[status] || statusConfig.nao_configurado;
+
+    statusArduino.innerHTML = sanitizarHtml(`
             <div class="arduino-sidebar-card">
                 <div class="arduino-sidebar-header">
                     <i class="fas fa-microchip"></i>
                     <span>Status do Arduino</span>
                 </div>
                 <div class="arduino-sidebar-body">
-                    <span class="arduino-sidebar-icon" style="color:${statusColor} !important;">
-                        <i class="fas ${statusIcon}" style="color:${statusColor} !important;"></i>
+                    <span class="arduino-sidebar-icon" style="color:${cfg.cor} !important;">
+                        <i class="fas ${cfg.icone}" style="color:${cfg.cor} !important;"></i>
                     </span>
-                    <span class="arduino-sidebar-text" style="color:${statusColor} !important;">
-                        ${statusText}
+                    <span class="arduino-sidebar-text" style="color:${cfg.cor} !important;">
+                        ${cfg.texto}
                     </span>
                 </div>
             </div>
-        `;
+        `);
   }
 
   async function carregarAtividade()
@@ -1074,8 +1106,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const recentes = gastos.slice(0, 5);
-    activityList.innerHTML = recentes
+    const recentes = gastos.slice(0, 3);
+    activityList.innerHTML = sanitizarHtml(recentes
       .map((g) => {
         const valor = parseFloat(g.valor_estimado) || 0;
         const valorFmt = valor.toLocaleString("pt-BR", {
@@ -1101,7 +1133,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             `;
       })
-      .join("");
+      .join(""));
 
     if (gastos.length > 5)
     {
@@ -1327,9 +1359,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try
       {
+        const csrfToken = obterCsrfToken();
+        const headers = { "Content-Type": "application/json" };
+        if (csrfToken) headers["X-CSRF-Token"] = csrfToken;
+
         const res = await fetch(`${API_BASE}/usuarios/alterar-senha.php`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers,
           credentials: "include",
           body: JSON.stringify({
             senha_atual: senhaAtual,
@@ -1404,7 +1440,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try
       {
+        const token = obterCsrfToken();
+
         const result = await Auth.updateProfile({
+          csrf_token: token,
           email: novoEmail,
           senha_atual: senhaAtual,
         });

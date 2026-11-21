@@ -185,7 +185,7 @@ require_once dirname(__DIR__) . '/components/footer.php';
 
     <script type="module" src="../assets/js/auth.js"></script>
     <script type="module" src="../assets/js/global.js"></script>
-    <script type="module" src="../assets/js/pages/admin/admin.js?v=5"></script>
+    <script type="module" src="../assets/js/pages/admin/admin.js?v=<?= time() ?>"></script>
 </body>
 
 </html>

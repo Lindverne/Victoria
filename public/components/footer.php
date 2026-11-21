@@ -18,7 +18,7 @@
             <h4>Conexão Técnica</h4>
             <p><i class="fa-solid fa-envelope"></i> projetovictoria@gmail.com</p>
             <p><i class="fa-solid fa-location-dot"></i> Etec Lauro Gomes: São Bernardo do Campo - SP</p>
-            <p><i class="fa-solid fa-code-branch"></i> Versão 0.9.7 - Rem</p>
+            <p><i class="fa-solid fa-code-branch"></i> Versão 0.9.8 - Phoenix</p>
         </div>
 
         <div class="footer-social">

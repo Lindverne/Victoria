@@ -26,6 +26,8 @@ const docActions = {
   },
 };
 
+window.docActions = docActions;
+
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("doc-container");
   const reveals = document.querySelectorAll(".reveal");

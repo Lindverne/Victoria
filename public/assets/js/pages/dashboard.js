@@ -1,11 +1,19 @@
-import { urlImagemSegura } from "../utils/url-segura.js";
+import { urlImagemSegura, definirSrcSeguro } from "../utils/url-segura.js";
 
 const API_BASE = window.location.pathname.includes("/pages/")
   ? "../../api"
   : "../api";
 
+const DOMPurify = window.DOMPurify;
+
+function sanitizarHtml(html)
+{
+  return DOMPurify ? DOMPurify.sanitize(html) : html;
+}
+
 const CACHE_TTL_MS = 5 * 60 * 1000;
 const CHAVE_LEITURA_ANTERIOR = "victoria_leitura_hidrometro";
+const CHAVE_CATEGORIA_ULTIMA = "victoria_categoria_tarifa_ultima";
 const LIMITE_UPLOAD_BYTES = 5 * 1024 * 1024;
 const LIMITE_DIGITOS_LEITURA = 8;
 
@@ -356,8 +364,14 @@ const CHART_COLORS = () =>
     : ["#124559", "#598392", "#aec3b0", "#e8a838", "#c44545", "#4a7c59", "#8e6b8a", "#2a5c72"];
 const TOOLTIP_TEXT_COLORS = () =>
   temaEscuro()
-    ? ["#0d1a23", "#0d1a23", "#0d1a23", "#0d1a23", "#0d1a23", "#0d1a23", "#0d1a23", "#0d1a23"]
+    ? ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
     : ["#ffffff", "#ffffff", "#1a2a3a", "#1a2a3a", "#ffffff", "#ffffff", "#ffffff", "#ffffff"];
+
+// Cores dedicadas ao donut da Meta de Sustentabilidade (legíveis em ambos os temas)
+const META_CHART_COLORS = () =>
+  temaEscuro()
+    ? ["#2ecc71", "#3498db", "#e74c3c", "#f1c40f", "#9b59b6", "#1abc9c", "#e67e22", "#34495e"]
+    : ["#27ae60", "#2980b9", "#c0392b", "#f39c12", "#8e44ad", "#16a085", "#d35400", "#7f8c8d"];
 
 function opcoesBase()
 {
@@ -439,8 +453,14 @@ function renderizarProjecaoCusto()
 
   if (!elemento) return;
 
-  const selectTarifa = document.getElementById("categoriaTarifa");
-  const categoria = (selectTarifa && selectTarifa.value) || "Residencial";
+  let categoria = localStorage.getItem(CHAVE_CATEGORIA_ULTIMA);
+
+  if (!categoria)
+  {
+    const selectTarifa = document.getElementById("categoriaTarifa");
+    categoria = (selectTarifa && selectTarifa.value) || "Residencial";
+  }
+
   const volumes = [];
   const custos = [];
 
@@ -521,9 +541,23 @@ function renderizarProjecaoCusto()
       },
     },
     tooltip: {
-      custom: ({ series, dataPointIndex, w }) => {
-        const m3 = w.globals.categories[dataPointIndex];
-        const valor = formatarMoeda(series[0][dataPointIndex]);
+      custom: ({ series, dataPointIndex, w, seriesIndex }) => {
+        if (!series || !Array.isArray(series) || series[0] == null)
+        {
+          return '';
+        }
+
+        const idx = seriesIndex ?? 0;
+        const dado = series[idx]?.[dataPointIndex];
+
+        if (dado == null)
+        {
+          return '';
+        }
+
+        const m3 = w.globals.categories?.[dataPointIndex] ?? dataPointIndex;
+        const valor = typeof dado === 'object' ? dado.y : dado;
+        const valorFormatado = formatarMoeda(valor);
         const cor = corSerie2();
 
         return `<div style="
@@ -535,7 +569,7 @@ function renderizarProjecaoCusto()
                     font-size: 13px;
                     font-weight: 600;
                     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);">
-                        <strong>${m3} m³</strong> — ${valor}
+                        <strong>${m3} m³</strong> — ${valorFormatado}
                         <small style="display: block; font-size: 10px; opacity: 0.85;">água + esgoto (100%)</small>
                     </div>`;
       },
@@ -600,6 +634,13 @@ function obterDadosMetaSustentabilidade(historico)
     series.push(0);
     labels.push("Sem consumo no mês");
     cores.push(CHART_COLORS()[2]);
+  }
+
+  const totalSeries = series.reduce((a, b) => a + b, 0);
+
+  if (totalSeries <= 0)
+  {
+    return null;
   }
 
   return { series, labels, cores, totalMes, alvo };
@@ -667,7 +708,7 @@ function renderizarMetaSustentabilidade(historico)
               fontSize: "12px",
               fontFamily: "Montserrat, sans-serif",
               fontWeight: 700,
-              color: corTextoGrafico(),
+              color: temaEscuro() ? "#86b3bd" : "#124559",
               formatter: (w) =>
                 w.globals.seriesTotals.reduce((a, b) => a + b, 0).toFixed(1) +
                 " m³",
@@ -725,7 +766,7 @@ function expandirGraficoPainel(titulo, instancia)
 
   const overlay = document.createElement("div");
   overlay.className = "chart-fullscreen-overlay";
-  overlay.innerHTML = DOMPurify.sanitize(
+  overlay.innerHTML = sanitizarHtml(
     `
         <div class="chart-fullscreen-modal">
             <div class="chart-fullscreen-header">
@@ -1439,6 +1480,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const historicoAtualizado = await carregarHistorico(true);
     setPeriodoDashboard();
     renderizarMetaSustentabilidade(historicoAtualizado);
+    renderizarProjecaoCusto();
   });
 
   alternarModo(modoAtivo);
@@ -1527,6 +1569,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           {
             localStorage.setItem(CHAVE_LEITURA_ANTERIOR, String(leituraAtual));
           }
+
+          localStorage.setItem(CHAVE_CATEGORIA_ULTIMA, categoria);
 
           const fmt = (v) =>
             v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });

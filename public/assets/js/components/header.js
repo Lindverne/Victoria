@@ -14,6 +14,7 @@ export function initHeader()
     if (wrapperUsuario) wrapperUsuario.classList.remove("nav-hidden");
 
     configurarDadosUsuario();
+    sincronizarAuthColuna();
 
     Auth.checkSession().then((sessionOk) => {
 
@@ -32,6 +33,8 @@ export function initHeader()
     if (btnLoginNav) btnLoginNav.classList.remove("nav-hidden");
 
     if (wrapperUsuario) wrapperUsuario.classList.add("nav-hidden");
+
+    sincronizarAuthColuna();
   }
 
   document.querySelectorAll(".nav-item.has-dropdown").forEach((item) => {
@@ -169,64 +172,175 @@ export function initHeader()
     megaMenu.addEventListener("keydown", handleMegaMenuKeydown);
   }
 
+  const burgerInput = document.getElementById("burger");
   const hamburgerBtn = document.getElementById("hamburgerBtn");
-  const navListCenter = document.querySelector(".nav-list-center");
+  const coluna = document.getElementById("mega-coluna-kasane-teto");
+  const btnLogoutColuna = document.getElementById("coluna-btn-logout");
 
-  if (hamburgerBtn && navListCenter)
+  const conteudoInerte = document.querySelectorAll(
+    ".nav-wrapper, .hero-section, .content-wrapper, footer"
+  );
+
+  function sincronizarAuthColuna()
   {
-    const overlay = document.createElement("div");
-    overlay.className = "nav-mobile-overlay";
-    document.body.appendChild(overlay);
+    const autenticado = Auth.isAuthenticated();
+    const btnLogin = document.getElementById("coluna-btn-login");
+    const perfil = document.getElementById("coluna-perfil");
 
-    function toggleMobileMenu()
+    if (btnLogin && perfil)
     {
-      const isOpen = hamburgerBtn.classList.toggle("active");
-      navListCenter.classList.toggle("mobile-open", isOpen);
-      overlay.classList.toggle("active", isOpen);
-      hamburgerBtn.setAttribute("aria-expanded", String(isOpen));
-      document.body.style.overflow = isOpen ? "hidden" : "";
+      if (autenticado)
+      {
+        btnLogin.classList.add("nav-hidden");
+        perfil.classList.remove("nav-hidden");
+        configurarDadosUsuario();
+      }
+      else
+      {
+        btnLogin.classList.remove("nav-hidden");
+        perfil.classList.add("nav-hidden");
+      }
+    }
+  }
+
+  if (burgerInput && hamburgerBtn && coluna)
+  {
+    const overlay = document.querySelector(".nav-mobile-overlay") ?? (() => {
+      const el = document.createElement("div");
+      el.className = "nav-mobile-overlay";
+      document.body.appendChild(el);
+      return el;
+    })();
+
+    function abrirColuna()
+    {
+      burgerInput.checked = true;
+      coluna.classList.add("aberta");
+      coluna.hidden = false;
+      coluna.setAttribute("aria-modal", "true");
+      sincronizarAuthColuna();
+      overlay.classList.add("active");
+      hamburgerBtn.setAttribute("aria-expanded", "true");
+      hamburgerBtn.setAttribute("aria-label", "Fechar menu de navegação");
+      document.body.style.overflow = "hidden";
+      conteudoInerte.forEach((el) =>
+      {
+        if (el !== hamburgerBtn && !el.contains(hamburgerBtn))
+        {
+          el.setAttribute("inert", "true");
+        }
+      });
+      const primeiroLink = coluna.querySelector(".coluna-link, .coluna-btn-login");
+      if (primeiroLink) primeiroLink.focus();
     }
 
-    function closeMobileMenu()
+    function fecharColuna()
     {
-      hamburgerBtn.classList.remove("active");
-      navListCenter.classList.remove("mobile-open");
+      burgerInput.checked = false;
+      coluna.classList.remove("aberta");
+      coluna.removeAttribute("aria-modal");
       overlay.classList.remove("active");
       hamburgerBtn.setAttribute("aria-expanded", "false");
+      hamburgerBtn.setAttribute("aria-label", "Abrir menu de navegação");
       document.body.style.overflow = "";
+      conteudoInerte.forEach((el) => el.removeAttribute("inert"));
+      hamburgerBtn.removeAttribute("inert");
+      hamburgerBtn.focus();
+
+      coluna.addEventListener("transitionend", () => {
+        if (!coluna.classList.contains("aberta"))
+        {
+          coluna.hidden = true;
+        }
+      }, { once: true });
     }
 
-    hamburgerBtn.addEventListener("click", toggleMobileMenu);
-    overlay.addEventListener("click", closeMobileMenu);
+    hamburgerBtn.addEventListener("click", () => {
+      if (burgerInput.checked) fecharColuna(); else abrirColuna();
+    });
 
-    navListCenter.querySelectorAll(".nav-link").forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const parent = link.closest(".nav-item");
+    overlay.addEventListener("click", fecharColuna);
 
-        if (parent && parent.classList.contains("has-dropdown"))
-        {
-          e.preventDefault();
-          const submenu = parent.querySelector(".mega-menu-wrapper");
-
-          if (submenu) submenu.classList.toggle("mobile-open");
-          return;
-        }
-
-        closeMobileMenu();
+    coluna.querySelectorAll(".coluna-link, .coluna-btn-login").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (link.id === "coluna-btn-logout") return;
+        fecharColuna();
       });
     });
 
+    if (btnLogoutColuna)
+    {
+      btnLogoutColuna.addEventListener("click", (e) => {
+        e.preventDefault();
+        fecharColuna();
+
+        Swal.fire({
+          title: "Sair do sistema?",
+          text: "Você precisará fazer login novamente para acessar seus dados.",
+          icon: "warning",
+          iconColor: "#e8a838",
+          showCancelButton: true,
+          confirmButtonColor: "var(--cor-botao)",
+          confirmButtonText: "Sim, sair",
+          cancelButtonText: "Cancelar",
+        }).then(async (result) => {
+
+          if (!result.isConfirmed) return;
+
+          await Auth.logout();
+
+          Swal.fire({
+            title: "Sessão encerrada",
+            text: "Logout realizado com sucesso.",
+            icon: "success",
+            timer: 1500,
+            showConfirmButton: false,
+          }).then(() => {
+            window.location.href = window.location.pathname.includes("/pages/")
+              ? "../index.php"
+              : "index.php";
+          });
+        });
+      });
+    }
+
     window.addEventListener("resize", () => {
 
-      if (window.innerWidth > 992) closeMobileMenu();
+      if (window.innerWidth > 992 && burgerInput.checked) fecharColuna();
     });
 
     document.addEventListener("keydown", (e) => {
 
-      if (e.key === "Escape" && navListCenter.classList.contains("mobile-open"))
+      if (e.key === "Escape" && burgerInput.checked)
       {
-        closeMobileMenu();
-        hamburgerBtn.focus();
+        fecharColuna();
+      }
+
+      if (burgerInput.checked && e.key === "Tab")
+      {
+        const focusaveis = coluna.querySelectorAll("a[href], button, [role='menuitem']");
+        const visiveis = Array.from(focusaveis).filter(el => !el.hasAttribute("hidden") && el.offsetParent !== null);
+
+        if (visiveis.length === 0) return;
+
+        const indiceAtual = visiveis.indexOf(document.activeElement);
+
+        if (e.shiftKey)
+        {
+          if (indiceAtual <= 0)
+          {
+            e.preventDefault();
+            visiveis[visiveis.length - 1].focus();
+          }
+        }
+        else
+        {
+          if (indiceAtual === -1 || indiceAtual === visiveis.length - 1)
+          {
+            e.preventDefault();
+            visiveis[0].focus();
+          }
+        }
       }
 
     });
@@ -431,13 +545,80 @@ export function configurarDadosUsuario()
     ? `<img src="${avatar}" alt="Foto de perfil de ${nome}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`
     : `<div style="background:${cor};color:white;width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;" aria-label="Inicial do nome: ${inicial}">${inicial}</div>`;
 
+  function montarAvatarSeguro()
+  {
+    const container = document.createElement("div");
+
+    container.style.width = "100%";
+    container.style.height = "100%";
+    container.style.borderRadius = "50%";
+    container.style.display = "flex";
+    container.style.alignItems = "center";
+    container.style.justifyContent = "center";
+    container.style.fontWeight = "bold";
+    container.style.overflow = "hidden";
+
+    if (temFoto)
+    {
+      const urlAvatar = String(avatar);
+
+      if (/^https?:\/\//i.test(urlAvatar) || /^data:image\//i.test(urlAvatar))
+      {
+        const img = document.createElement("img");
+        img.setAttribute("src", urlAvatar);
+        img.setAttribute("alt", `Foto de perfil de ${nome}`);
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.style.borderRadius = "50%";
+        img.style.objectFit = "cover";
+        container.appendChild(img);
+      }
+
+      else
+      {
+        container.style.background = cor;
+        container.style.color = "white";
+        container.textContent = inicial;
+        container.setAttribute("aria-label", `Inicial do nome: ${inicial}`);
+      }
+    }
+
+    else
+    {
+      container.style.background = cor;
+      container.style.color = "white";
+      container.textContent = inicial;
+      container.setAttribute("aria-label", `Inicial do nome: ${inicial}`);
+    }
+
+    return container;
+  }
+
+  const elementoAvatar = montarAvatarSeguro();
+
   const navAvatar = document.getElementById("btn-avatar-nav");
 
-  if (navAvatar) navAvatar.innerHTML = avatarHTML;
+  if (navAvatar)
+  {
+    navAvatar.innerHTML = "";
+    navAvatar.appendChild(elementoAvatar.cloneNode(true));
+  }
 
   const containerGrande = document.querySelector(".avatar-grande-container");
 
-  if (containerGrande) containerGrande.innerHTML = avatarHTML;
+  if (containerGrande)
+  {
+    containerGrande.innerHTML = "";
+    containerGrande.appendChild(elementoAvatar.cloneNode(true));
+  }
+
+  const colunaAvatar = document.getElementById("coluna-avatar");
+
+  if (colunaAvatar)
+  {
+    colunaAvatar.innerHTML = "";
+    colunaAvatar.appendChild(elementoAvatar.cloneNode(true));
+  }
 
   const emailEl = document.querySelector(".user-email");
 
@@ -446,4 +627,26 @@ export function configurarDadosUsuario()
   const saudacaoEl = document.querySelector(".saudacao-usuario");
 
   if (saudacaoEl) saudacaoEl.textContent = `Olá, ${nome.split(" ")[0]}!`;
+
+  const colunaSaudacao = document.getElementById("coluna-saudacao");
+
+  if (colunaSaudacao) colunaSaudacao.textContent = `Olá, ${nome.split(" ")[0]}!`;
+
+  const colunaEmail = document.getElementById("coluna-email");
+
+  if (colunaEmail) colunaEmail.textContent = email;
+
+  const colunaGrupoAdmin = document.querySelector(".coluna-grupo-admin");
+
+  if (colunaGrupoAdmin)
+  {
+    if (user.tipo_usuario === 2)
+    {
+      colunaGrupoAdmin.hidden = false;
+    }
+    else
+    {
+      colunaGrupoAdmin.hidden = true;
+    }
+  }
 }

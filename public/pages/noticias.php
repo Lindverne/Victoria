@@ -586,7 +586,7 @@ require_once dirname(__DIR__) . '/components/footer.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="../assets/js/auth.js"></script>
     <script type="module" src="../assets/js/global.js"></script>
-    <script src="../assets/js/pages/noticias.js"></script>
+    <script src="../assets/js/pages/noticias.js?v=<?= time() ?>"></script>
     <script>
     (function() {
         'use strict';

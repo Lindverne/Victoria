@@ -107,6 +107,22 @@
         },
         backdrop: true,
         didOpen: () => {
+          const backdrop = document.querySelector(".swal2-backdrop");
+
+          if (backdrop)
+          {
+            backdrop.classList.add("swal2-backdrop-news");
+            backdrop.dataset.blurOriginal = backdrop.style.cssText;
+            backdrop.style.cssText =
+              "position: fixed !important; inset: 0 !important; display: block !important; opacity: 1 !important; " +
+              "background: rgba(1, 22, 30, 0.55) !important; " +
+              "backdrop-filter: blur(10px) !important; " +
+              "-webkit-backdrop-filter: blur(10px) !important; " +
+              backdrop.style.cssText;
+
+            document.body.classList.add("swal2-news-open");
+          }
+
           const img = document.querySelector(".news-modal-banner img");
 
           if (img)
@@ -117,6 +133,23 @@
             };
 
             if (img.complete) img.style.opacity = "1";
+          }
+
+        },
+        didClose: () => {
+          document.body.classList.remove("swal2-news-open");
+
+          const backdrop = document.querySelector(".swal2-backdrop");
+
+          if (backdrop)
+          {
+            backdrop.classList.remove("swal2-backdrop-news");
+          }
+
+          if (backdrop && backdrop.dataset.blurOriginal !== undefined)
+          {
+            backdrop.style.cssText = backdrop.dataset.blurOriginal;
+            delete backdrop.dataset.blurOriginal;
           }
 
         },

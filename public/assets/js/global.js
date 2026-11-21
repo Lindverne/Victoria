@@ -3,7 +3,7 @@ import { initHeader } from "./components/header.js";
 import { initAnimations } from "./utils/animacoes.js";
 import { initEntryAnimation } from "./utils/animacao-entrada.js";
 import { aplicarTemaInicial, initTema } from "./utils/tema.js";
-import { urlImagemSegura } from "./utils/url-segura.js";
+import { urlImagemSegura, definirSrcSeguro } from "./utils/url-segura.js";
 
 function exibirBannerConsole()
 {
@@ -41,7 +41,7 @@ function exibirBannerConsole()
       desenharImagem(devtools, 275, 275);
 
       console.log(
-        "%c 💧 Victória - Versão 0.9.7 - Rem",
+        "%c 💧 Victória - Versão 0.9.8 - Phoenix",
         "color: #eff6e0; font-weight: bold; font-size: 13px; padding-left: 3px; letter-spacing: 0.5px;",
       );
     }
@@ -49,7 +49,7 @@ function exibirBannerConsole()
     catch (erroBanner)
     {
       console.log(
-        "%cVictória - Versão 0.9.7 - Rem",
+        "%cVictória - Versão 0.9.8 - Phoenix",
         "color: #eff6e0; font-weight: bold; font-size: 13px;",
       );
     }
@@ -574,9 +574,7 @@ document.addEventListener("DOMContentLoaded", () => {
             modalFoto.style.background = "transparent";
           }
 
-          const navAvatar = document.querySelector(
-            ".nav-avatar-img, .user-avatar img",
-          );
+          const navAvatar = document.querySelector("#btn-avatar-nav img");
 
           if (navAvatar && urlImagemSegura(avatarData))
           {

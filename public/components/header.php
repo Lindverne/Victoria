@@ -62,11 +62,12 @@
             <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/pages/sobre.php" class="nav-link" role="menuitem"><i class="fa-solid fa-circle-info nav-icon" aria-hidden="true"></i> Sobre o TCC</a></li>
         </ul>
 
-        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu">
-            <span class="hamburger-line" aria-hidden="true"></span>
-            <span class="hamburger-line" aria-hidden="true"></span>
-            <span class="hamburger-line" aria-hidden="true"></span>
-        </button>
+        <label class="burger" id="hamburgerBtn" for="burger" role="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mega-coluna-kasane-teto">
+            <input type="checkbox" id="burger" hidden>
+            <span class="burger-line" aria-hidden="true"></span>
+            <span class="burger-line" aria-hidden="true"></span>
+            <span class="burger-line" aria-hidden="true"></span>
+        </label>
 
         <div class="nav-right">
             <div class="container-usuario-nav">
@@ -103,6 +104,87 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</nav>
+
+<nav class="mega-coluna-kasane-teto" id="mega-coluna-kasane-teto" role="navigation" aria-label="Menu mobile" hidden>
+    <div class="coluna-header">
+        <h2 class="coluna-titulo">Navegação</h2>
+    </div>
+    <div class="coluna-conteudo" role="menu">
+        <div class="coluna-grupo">
+            <h3 class="coluna-grupo-titulo"><i class="fa-solid fa-droplet" aria-hidden="true"></i> Plataforma</h3>
+        <a href="<?= BASE_URL ?>/pages/dashboard.php" class="coluna-link" role="menuitem">
+            <i class="fa-solid fa-gauge-high coluna-link-icon" aria-hidden="true"></i>
+            <span class="coluna-link-texto">Dashboard Analítico</span>
+        </a>
+        <a href="<?= BASE_URL ?>/pages/relatorios.php" class="coluna-link" role="menuitem">
+            <i class="fa-solid fa-chart-line coluna-link-icon" aria-hidden="true"></i>
+            <span class="coluna-link-texto">Relatórios Inteligentes</span>
+        </a>
+        <a href="<?= BASE_URL ?>/pages/hardware.php" class="coluna-link" role="menuitem">
+            <i class="fa-solid fa-microchip coluna-link-icon" aria-hidden="true"></i>
+            <span class="coluna-link-texto">Especificação de Hardware</span>
+        </a>
+        <a href="<?= BASE_URL ?>/pages/protocolos.php" class="coluna-link" role="menuitem">
+            <i class="fa-solid fa-layer-group coluna-link-icon" aria-hidden="true"></i>
+            <span class="coluna-link-texto">Protocolos IoT</span>
+        </a>
+        <a href="<?= BASE_URL ?>/pages/noticias.php" class="coluna-link" role="menuitem">
+            <i class="fa-solid fa-newspaper coluna-link-icon" aria-hidden="true"></i>
+            <span class="coluna-link-texto">Notícias</span>
+        </a>
+        <a href="<?= BASE_URL ?>/pages/documentacao.php" class="coluna-link" role="menuitem">
+            <i class="fa-solid fa-book coluna-link-icon" aria-hidden="true"></i>
+            <span class="coluna-link-texto">Documentação &amp; Fontes</span>
+        </a>
+        </div>
+        <div class="coluna-grupo">
+            <h3 class="coluna-grupo-titulo"><i class="fa-solid fa-flask" aria-hidden="true"></i> Metodologia</h3>
+            <a href="<?= BASE_URL ?>/pages/metodologia.php" class="coluna-link" role="menuitem">
+                <i class="fa-solid fa-flask coluna-link-icon" aria-hidden="true"></i>
+                <span class="coluna-link-texto">Metodologia</span>
+            </a>
+        </div>
+        <div class="coluna-grupo">
+            <h3 class="coluna-grupo-titulo"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Sobre o TCC</h3>
+            <a href="<?= BASE_URL ?>/pages/sobre.php" class="coluna-link" role="menuitem">
+                <i class="fa-solid fa-circle-info coluna-link-icon" aria-hidden="true"></i>
+                <span class="coluna-link-texto">Sobre o TCC</span>
+            </a>
+        </div>
+        <div class="coluna-grupo coluna-grupo-admin" hidden data-admin="true">
+            <h3 class="coluna-grupo-titulo"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Administração</h3>
+            <a href="<?= BASE_URL ?>/pages/admin.php" class="coluna-link" role="menuitem">
+                <i class="fa-solid fa-shield-halved coluna-link-icon" aria-hidden="true"></i>
+                <span class="coluna-link-texto">Admin</span>
+            </a>
+        </div>
+        <div class="coluna-divisor"></div>
+    </div>
+    <div class="coluna-base">
+        <div class="coluna-auth" id="coluna-auth">
+            <a href="<?= BASE_URL ?>/pages/login.php" class="coluna-btn-login" id="coluna-btn-login">
+                <i class="fa-solid fa-key coluna-auth-icon" aria-hidden="true"></i> Fazer Login
+            </a>
+            <div class="coluna-perfil nav-hidden" id="coluna-perfil">
+                <div class="coluna-avatar" id="coluna-avatar">
+                    <span class="coluna-inicial">?</span>
+                </div>
+                <h3 class="coluna-saudacao" id="coluna-saudacao">Olá, Usuário</h3>
+                <p class="coluna-email" id="coluna-email">perfil@victoria.com</p>
+                <a href="<?= BASE_URL ?>/pages/perfil.php" class="coluna-link coluna-link-perfil" role="menuitem">
+                    <i class="fa-solid fa-user-gear coluna-link-icon" aria-hidden="true"></i>
+                    <span class="coluna-link-texto">Configurações de Perfil</span>
+                </a>
+                <button class="coluna-link coluna-link-perfil coluna-link-logout" id="coluna-btn-logout" role="menuitem">
+                    <i class="fa-solid fa-sign-out-alt coluna-link-icon" aria-hidden="true"></i>
+                    <span class="coluna-link-texto">Encerrar Sessão</span>
+                </button>
+            </div>
+        </div>
+        <div class="coluna-rodape">
         </div>
     </div>
 </nav>
