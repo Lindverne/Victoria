@@ -6,12 +6,28 @@ function conectarBanco(): ?PDO
     $db_name  = getenv('DB_NAME') ?: 'victoria';
     $username = getenv('DB_USER') ?: 'Lindverne';
     $password = getenv('DB_PASSWORD') ?: '1234';
+    $port     = (int) (getenv('DB_PORT') ?: 3306);
+    $ssl_ca   = getenv('DB_SSL_CA');
+
+    $dsn = "mysql:host={$host};port={$port};dbname={$db_name};charset=utf8mb4";
+
+    $opcoes = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ];
+
+    if ($ssl_ca)
+    {
+        if (!is_file($ssl_ca))
+        {
+            throw new PDOException('DB_SSL_CA arquivo nao encontrado: ' . $ssl_ca);
+        }
+        $opcoes[PDO::MYSQL_ATTR_SSL_CA] = $ssl_ca;
+    }
 
     try
     {
-        $conn = new PDO("mysql:host={$host};dbname={$db_name};charset=utf8", $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $conn = new PDO($dsn, $username, $password, $opcoes);
 
         return $conn;
     }

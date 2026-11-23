@@ -17,8 +17,6 @@ require_once dirname(__DIR__) . '/helpers/caminhos.php';
     <link rel="stylesheet" href="../assets/css/global/variables-dark.css">
     <link rel="stylesheet" href="../assets/css/global/global.css">
     <link rel="stylesheet" href="../assets/css/components/tema.css">
-    <link rel="stylesheet" href="../assets/css/global/nav.css?v=20261028">
-
     <link rel="stylesheet" href="../assets/css/pages/sobre.css">
 
     <link rel="stylesheet" href="../assets/css/responsividade.css">

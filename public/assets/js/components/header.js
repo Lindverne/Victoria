@@ -176,6 +176,7 @@ export function initHeader()
   const hamburgerBtn = document.getElementById("hamburgerBtn");
   const coluna = document.getElementById("mega-coluna-kasane-teto");
   const btnLogoutColuna = document.getElementById("coluna-btn-logout");
+  const btnFecharColuna = document.getElementById("btn-fechar-coluna");
 
   const conteudoInerte = document.querySelectorAll(
     ".nav-wrapper, .hero-section, .content-wrapper, footer"
@@ -222,6 +223,12 @@ export function initHeader()
       overlay.classList.add("active");
       hamburgerBtn.setAttribute("aria-expanded", "true");
       hamburgerBtn.setAttribute("aria-label", "Fechar menu de navegação");
+      const burgerIcon = document.getElementById("burger-icon");
+
+      if (burgerIcon)
+      {
+        burgerIcon.classList.replace("fa-bars", "fa-times");
+      }
       document.body.style.overflow = "hidden";
       conteudoInerte.forEach((el) =>
       {
@@ -246,6 +253,12 @@ export function initHeader()
       conteudoInerte.forEach((el) => el.removeAttribute("inert"));
       hamburgerBtn.removeAttribute("inert");
       hamburgerBtn.focus();
+      const burgerIcon = document.getElementById("burger-icon");
+
+      if (burgerIcon)
+      {
+        burgerIcon.classList.replace("fa-times", "fa-bars");
+      }
 
       coluna.addEventListener("transitionend", () => {
         if (!coluna.classList.contains("aberta"))
@@ -260,6 +273,11 @@ export function initHeader()
     });
 
     overlay.addEventListener("click", fecharColuna);
+
+    if (btnFecharColuna)
+    {
+      btnFecharColuna.addEventListener("click", fecharColuna);
+    }
 
     coluna.querySelectorAll(".coluna-link, .coluna-btn-login").forEach((link) => {
       link.addEventListener("click", () => {
@@ -509,22 +527,6 @@ export function configurarDadosUsuario()
 
   if (!user) return;
 
-  const adminLink = document.querySelector(".nav-item-admin");
-
-  if (adminLink)
-  {
-    if (user.tipo_usuario && user.tipo_usuario === 2)
-    {
-      adminLink.classList.remove("nav-hidden");
-    }
-
-    else
-    {
-      adminLink.classList.add("nav-hidden");
-    }
-
-  }
-
   const nome = user.nome || "Usuário";
   const email = user.email || "perfil@victoria.com";
   const avatar = user.avatar || "";
@@ -636,17 +638,4 @@ export function configurarDadosUsuario()
 
   if (colunaEmail) colunaEmail.textContent = email;
 
-  const colunaGrupoAdmin = document.querySelector(".coluna-grupo-admin");
-
-  if (colunaGrupoAdmin)
-  {
-    if (user.tipo_usuario === 2)
-    {
-      colunaGrupoAdmin.hidden = false;
-    }
-    else
-    {
-      colunaGrupoAdmin.hidden = true;
-    }
-  }
 }

@@ -14,7 +14,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/status-Em%20Andamento-008FFB?style=for-the-badge&logo=databricks&logoColor=white" alt="Status">
-  <img src="https://img.shields.io/badge/Vers%C3%A3o%200.9.7%20-%20Rem-124559?style=for-the-badge&logo=semver&logoColor=white" alt="Versão">
+  <img src="https://img.shields.io/badge/Versao%201.0%20-%20Eldreda-124559?style=for-the-badge&logo=semver&logoColor=white" alt="Versão">
   <img src="https://img.shields.io/badge/%C3%9Altima%20Atualiza%C3%A7%C3%A3o-2026-124559?style=for-the-badge&logo=github&logoColor=white" alt="Última Atualização">
 </p>
 
@@ -70,8 +70,8 @@
 
 <p align="center">
   <blockquote>
-    <strong>Versão:</strong> Versão 0.9.7 - Rem<br>
-    <strong>Última Atualização:</strong> Outubro de 2026<br>
+    <strong>Versão:</strong> Versao 1.0 - Eldreda<br>
+    <strong>Última Atualização:</strong> Novembro de 2026<br>
     <strong>Status:</strong> Em Andamento
   </blockquote>
 </p>
@@ -84,7 +84,7 @@
 
 <p align="center">
   <blockquote>
-    🔔 <strong>Nota:</strong> Funcionalidades de <strong>recuperação de senha</strong> e <strong>verificação de e-mail</strong> serão implementadas futuramente.
+    ✅ <strong>Nota:</strong> Funcionalidade de <strong>recuperação de senha</strong> já implementada (e-mail com código de redefinição). <strong>Verificação de e-mail</strong> será implementada futuramente.
   </blockquote>
 </p>
 
@@ -144,15 +144,11 @@
   <tr>
     <td align="center">
       <h3 align="center">🔐 Autenticação</h3>
-      <p align="center">Login seguro com <strong>sessão PHP</strong>, cookie HTTP-only SameSite Lax, 3 níveis de acesso: Usuário / Admin / Corporativo.</p>
+      <p align="center">Login seguro com <strong>sessão PHP</strong>, cookie HTTP-only SameSite Lax e nível de acesso: Usuário.</p>
     </td>
     <td align="center">
       <h3 align="center">📰 Notícias</h3>
       <p align="center">Painel de notícias com categorias, destaques, <strong>upload de imagens</strong> e modal de leitura com avatar do autor.</p>
-    </td>
-    <td align="center">
-      <h3 align="center">⚙️ Admin</h3>
-      <p align="center">Painel completo: gestão de <strong>usuários, empresas, logs</strong> e estatísticas do sistema com gráficos.</p>
     </td>
   </tr>
   <tr>
@@ -262,10 +258,6 @@
     <td align="center"><strong>Sessão PHP</strong></td>
     <td align="center">Autenticação com cookie HTTP-only, SameSite Lax e validade de 30 dias</td>
   </tr>
-  <tr>
-    <td align="center"><strong>POO</strong></td>
-    <td align="center">CRUD administrativo orientado a objetos — <code>ControladorAdminCrud</code> abstrato + controllers no namespace <code>Victoria\Admin</code></td>
-  </tr>
 </table>
 
 <br>
@@ -287,15 +279,11 @@
   </tr>
   <tr>
     <td align="center"><code>renderizar-acesso-negado.php</code></td>
-    <td align="center">Renderiza a página estilizada <strong>403 Acesso Restrito</strong> quando o middleware admin bloqueia a requisição</td>
+    <td align="center">Renderiza a página estilizada <strong>403 Acesso Restrito</strong> quando o acesso é negado por falta de permissão</td>
   </tr>
   <tr>
     <td align="center"><code>verificador.php</code></td>
     <td align="center">Bloqueia acesso não autenticado com resposta JSON 401 ou redirecionamento</td>
-  </tr>
-  <tr>
-    <td align="center"><code>verificador-admin.php</code></td>
-    <td align="center">Bloqueia acesso não administrativo (<code>tipo_usuario !== 2</code>)</td>
   </tr>
   <tr>
     <td align="center"><code>verificador-sessao.php</code></td>
@@ -329,15 +317,12 @@ Victoria/
 │   ├── 📁 gastos/
 │   ├── 📁 noticias/
 │   ├── 📁 usuarios/
-│   ├── 📁 admin/
-│   │   └── 📁 controllers/    # CRUD OOP (ControladorAdminCrud)
 │   ├── 📁 middleware/
 │   ├── 📁 services/           # ServicoUpload (imagens)
 │   └── 📁 config/
 │
 ├── 📁 public/
 │   ├── 📁 pages/
-│   │   └── 📁 admin/           # Abas do painel administrativo
 │   ├── 📁 components/
 │   ├── 📁 helpers/
 │   └── 📁 assets/
@@ -355,11 +340,6 @@ Victoria/
 
 <br>
 
-<p align="center">
-  <blockquote>
-    🧩 <strong>Camadas da v0.9:</strong> o painel admin usa <strong>CRUD orientado a objetos</strong> (<code>ControladorAdminCrud</code> abstrato + <code>ControladorNoticias</code>, <code>ControladorEmpresas</code> e <code>ControladorLogs</code>); o upload de imagens fica isolado no serviço <code>ServicoUpload</code> (<code>api/services/</code>); e o helper <code>caminhos.php</code> resolve URLs e capas de notícias com fallback seguro.
-  </blockquote>
-</p>
 
 ---
 
@@ -501,7 +481,6 @@ Victoria/
 | Campo | Tipo | Descrição |
 |:------|:-----|:----------|
 | 👥 `usuarios` | Autenticação e perfis | id, tipo_usuario (1/2/3), email, senha (hash), avatar, wallpaper |
-| 🏢 `empresas` | Cadastro de empresas | id, nome, cidade, estado, status |
 | 💧 `gastos` | Histórico de consumo | id_usuario, consumo_m3, valor_estimado, data_leitura, status_consumo |
 | 📝 `logs` | Auditoria do sistema | id_usuario, modulo, acao, ip, user_agent |
 | 📰 `noticias` | Conteúdo do portal | id_autor, titulo, categoria, destaque, status, visualizacoes |
@@ -547,20 +526,15 @@ Victoria/
 </details>
 
 <details>
-  <summary><strong>📰 Notícias</strong> (4 endpoints — CRUD no painel admin)</summary>
+  <summary><strong>📰 Notícias</strong> (3 endpoints — leitura pública)</summary>
 
   <br>
 
   | Método | Endpoint | Descrição |
   |:-------|:---------|:----------|
-  | GET | `/api/noticias/listar.php` | Lista notícias (admin=1 ver rascunhos) |
+  | GET | `/api/noticias/listar.php` | Lista notícias publicadas |
   | GET | `/api/noticias/detalhe.php` | Detalhe da notícia com dados do autor |
   | POST | `/api/noticias/visualizar.php` | Registra visualização da notícia |
-  | POST | `/api/noticias/upload.php` | Upload de imagem — `ServicoUpload` valida MIME e tamanho (admin) |
-
-  <br>
-
-  > ✍️ Criar, atualizar e excluir notícias agora ficam no endpoint consolidado `/api/admin/noticias-admin.php`, via CRUD orientado a objetos.
 
 </details>
 
@@ -577,24 +551,10 @@ Victoria/
 
 </details>
 
-<details>
-  <summary><strong>⚙️ Admin</strong> (5 endpoints — tipo_usuario 2 apenas)</summary>
-
-  <br>
-
-  | Método | Endpoint | Descrição |
-  |:-------|:---------|:----------|
-  | GET | `/api/admin/estatisticas.php` | Stats do sistema + indicadores |
-  | GET/POST | `/api/admin/usuarios-admin.php` | CRUD completo de usuários |
-  | GET/POST | `/api/admin/empresas-admin.php` | CRUD de empresas — `ControladorEmpresas` |
-  | GET/POST | `/api/admin/logs-admin.php` | Logs com filtros — `ControladorLogs` |
-  | GET/POST | `/api/admin/noticias-admin.php` | **Novo na v0.9** — CRUD de notícias — `ControladorNoticias` |
-
-</details>
 
 <br>
 
-> 📊 **Total: 18 endpoints** em 5 módulos — 4 públicos, 8 protegidos por sessão e 6 restritos ao admin. Fora dos módulos, 2 utilitários de apoio: geração de `token CSRF` e checagem de sessão.
+> 📊 **Total: 11 endpoints** em 4 módulos — 4 públicos (incluindo login com Google) e 7 protegidos por sessão. Fora dos módulos, 2 utilitários de apoio: geração de `token CSRF` e checagem de sessão.
 
 <br>
 
@@ -803,3 +763,4 @@ Victoria/
   <img src="https://img.shields.io/badge/GitHub-01161e?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
   <img src="https://img.shields.io/badge/Etec%20Lauro%20Gomes-598392?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Etec Lauro Gomes">
 </p>
+ 

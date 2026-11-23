@@ -1250,26 +1250,6 @@
     color: #fff !important;
 }
 
-.perfil-tipo-badge.admin {
-    background: #1a2a4a;
-    color: #fff !important;
-    border-color: #1a2a4a;
-}
-
-.perfil-tipo-badge.admin i {
-    color: #fff !important;
-}
-
-.perfil-tipo-badge.corporativo {
-    background: #27ae60;
-    color: #fff !important;
-    border-color: #27ae60;
-}
-
-.perfil-tipo-badge.corporativo i {
-    color: #fff !important;
-}
-
 .perfil-tipo-badge:hover {
     transform: translateY(-1px);
     filter: brightness(1.1);

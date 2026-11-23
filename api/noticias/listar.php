@@ -5,7 +5,6 @@ header('Content-Type: application/json; charset=UTF-8');
 
 try
 {
-    $admin = isset($_GET['admin']) && $_GET['admin'] === '1';
     $limite = isset($_GET['limite']) ? (int) $_GET['limite'] : 20;
     $offset = isset($_GET['offset']) ? (int) $_GET['offset'] : 0;
     $categoria = $_GET['categoria'] ?? '';
@@ -14,10 +13,7 @@ try
     $where = [];
     $params = [];
 
-    if (!$admin)
-    {
-        $where[] = 'n.status = 1';
-    }
+    $where[] = 'n.status = 1';
 
     if (!empty($categoria))
     {

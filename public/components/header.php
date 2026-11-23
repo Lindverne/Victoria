@@ -58,15 +58,12 @@
                 </div>
             </li>
             <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/pages/metodologia.php" class="nav-link" role="menuitem"><i class="fa-solid fa-flask nav-icon" aria-hidden="true"></i> Metodologia</a></li>
-            <li class="nav-item nav-item-admin nav-hidden" role="none"><a href="<?= BASE_URL ?>/pages/admin.php" class="nav-link" role="menuitem"><i class="fa-solid fa-shield-halved nav-icon" aria-hidden="true"></i> Admin</a></li>
             <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/pages/sobre.php" class="nav-link" role="menuitem"><i class="fa-solid fa-circle-info nav-icon" aria-hidden="true"></i> Sobre o TCC</a></li>
         </ul>
 
         <label class="burger" id="hamburgerBtn" for="burger" role="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mega-coluna-kasane-teto">
             <input type="checkbox" id="burger" hidden>
-            <span class="burger-line" aria-hidden="true"></span>
-            <span class="burger-line" aria-hidden="true"></span>
-            <span class="burger-line" aria-hidden="true"></span>
+            <i class="fa-solid fa-bars" id="burger-icon" aria-hidden="true"></i>
         </label>
 
         <div class="nav-right">
@@ -110,6 +107,9 @@
 
 <nav class="mega-coluna-kasane-teto" id="mega-coluna-kasane-teto" role="navigation" aria-label="Menu mobile" hidden>
     <div class="coluna-header">
+        <button class="btn-fechar-coluna" id="btn-fechar-coluna" aria-label="Fechar menu de navegação">
+            <i class="fa-solid fa-times" aria-hidden="true"></i>
+        </button>
         <h2 class="coluna-titulo">Navegação</h2>
     </div>
     <div class="coluna-conteudo" role="menu">
@@ -152,13 +152,6 @@
             <a href="<?= BASE_URL ?>/pages/sobre.php" class="coluna-link" role="menuitem">
                 <i class="fa-solid fa-circle-info coluna-link-icon" aria-hidden="true"></i>
                 <span class="coluna-link-texto">Sobre o TCC</span>
-            </a>
-        </div>
-        <div class="coluna-grupo coluna-grupo-admin" hidden data-admin="true">
-            <h3 class="coluna-grupo-titulo"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Administração</h3>
-            <a href="<?= BASE_URL ?>/pages/admin.php" class="coluna-link" role="menuitem">
-                <i class="fa-solid fa-shield-halved coluna-link-icon" aria-hidden="true"></i>
-                <span class="coluna-link-texto">Admin</span>
             </a>
         </div>
         <div class="coluna-divisor"></div>

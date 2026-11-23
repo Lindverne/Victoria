@@ -1,0 +1,79 @@
+.circular-text {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 24px 0 0 auto;
+    border-radius: 50%;
+    text-align: center;
+    cursor: default;
+    transform: translate(-70%, 30%);
+}
+
+.footer-circular {
+    text-align: right;
+    margin-top: 16px;
+}
+
+.circular-text__tilt,
+.circular-text__plane,
+.circular-text__ring {
+    position: absolute;
+    inset: 0;
+}
+
+.circular-text__tilt {
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.circular-text__plane {
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.circular-text__ring {
+    transform-origin: center;
+    will-change: transform;
+}
+
+.circular-text__letter {
+    position: absolute;
+    inset: 0;
+    display: inline-block;
+    white-space: pre;
+    text-align: center;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: 0;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.circular-text[data-settled="true"] .circular-text__letter {
+    transition: transform 0.5s cubic-bezier(0, 0, 0, 1);
+}
+
+.circular-text__line {
+    position: absolute;
+    inset: 1.3em;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.circular-text__center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.circular-text__center .fa-solid {
+    font-size: 1.6rem;
+    color: var(--dark-teal);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+}

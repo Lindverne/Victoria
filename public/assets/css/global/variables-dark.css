@@ -679,66 +679,23 @@ body::before {
     color: var(--ink-black);
 }
 
-[data-theme='dark'] .admin-sidebar,
-[data-theme='dark'] .admin-stat-card,
 
-[data-theme='dark'] .admin-card {
-    background: rgba(15, 27, 36, 0.92);
-    border-color: rgba(134, 179, 189, 0.18);
-}
 
-[data-theme='dark'] .admin-search input,
 
-[data-theme='dark'] .logs-filter-group .dash-field {
-    background: rgba(13, 26, 35, 0.85);
-    border-color: rgba(134, 179, 189, 0.3);
-    color: #eff6e0;
-}
 
-[data-theme='dark'] .admin-table tbody td,
 
-[data-theme='dark'] .admin-table thead th {
-    color: var(--ink-black);
-}
 
-[data-theme='dark'] .admin-table thead th {
-    background: rgba(134, 179, 189, 0.08);
-}
 
-[data-theme='dark'] .admin-table tbody tr:nth-child(even) {
-    background: rgba(134, 179, 189, 0.04);
-}
-
-[data-theme='dark'] .admin-table tbody tr:hover {
-    background: rgba(134, 179, 189, 0.08);
-
-}[data-theme='dark'] .admin-page-header h2, [data-theme='dark'] .admin-card-header h3, [data-theme='dark'] .logs-filter-group label {
-    color: var(--ink-black);
-}
-
-[data-theme='dark'] .admin-page-header p,
-[data-theme='dark'] .admin-stat-card .stat-label,
-[data-theme='dark'] .admin-stat-card .stat-sub,
-[data-theme='dark'] .admin-loading,
 
 [data-theme='dark'] .empty-state {
     color: var(--air-force-blue);
 }
 
-[data-theme='dark'] .admin-stat-card .stat-value,
-[data-theme='dark'] .log-info .log-acao,
-
-[data-theme='dark'] .log-info .log-user {
-    color: var(--ink-black);
-}
 
 [data-theme='dark'] .log-info .log-desc {
     color: var(--air-force-blue);
 }
 
-[data-theme='dark'] .admin-card-header .card-badge {
-    background: rgba(134, 179, 189, 0.15);
-}
 
 [data-theme='dark'] .logs-filter-bar {
     background: rgba(13, 26, 35, 0.7);
@@ -842,10 +799,6 @@ body::before {
 [data-theme='dark'] .goals-define-btn,
 [data-theme='dark'] .metas-define-btn,
 
-[data-theme='dark'] .admin-pagination button.active {
-    background: var(--cor-botao);
-    color: #ffffff;
-}
 
 [data-theme='dark'] .news-filter-btn.active {
     background: var(--cor-botao);
@@ -857,9 +810,6 @@ body::before {
 
 [data-theme='dark'] .botao-modo.ativo,
 
-[data-theme='dark'] .admin-pagination button.active {
-    border-color: var(--cor-botao);
-}
 
 [data-theme='dark'] .highlight-badge {
     color: #ffffff !important;

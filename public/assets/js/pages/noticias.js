@@ -107,21 +107,84 @@
         },
         backdrop: true,
         didOpen: () => {
+          const overlay = document.createElement("div");
+
+          overlay.id = "news-modal-blur-overlay";
+          overlay.style.cssText =
+            "position: fixed !important; inset: 0 !important; z-index: 1059 !important; " +
+            "background: rgba(1, 22, 30, 0.55) !important; " +
+            "backdrop-filter: blur(10px) !important; " +
+            "-webkit-backdrop-filter: blur(10px) !important; " +
+            "pointer-events: auto !important;";
+
+          document.body.appendChild(overlay);
+          document.body.classList.add("swal2-news-open");
+          document.body.style.overflow = "hidden";
+
+          const container = document.querySelector(".swal2-container");
+
+          if (container)
+          {
+            container.classList.add("swal2-container-news");
+          }
+
           const backdrop = document.querySelector(".swal2-backdrop");
 
           if (backdrop)
           {
             backdrop.classList.add("swal2-backdrop-news");
-            backdrop.dataset.blurOriginal = backdrop.style.cssText;
-            backdrop.style.cssText =
+            backdrop.dataset.blurOriginal = backdrop.getAttribute("style") || "";
+            backdrop.setAttribute("style",
               "position: fixed !important; inset: 0 !important; display: block !important; opacity: 1 !important; " +
               "background: rgba(1, 22, 30, 0.55) !important; " +
               "backdrop-filter: blur(10px) !important; " +
-              "-webkit-backdrop-filter: blur(10px) !important; " +
-              backdrop.style.cssText;
-
-            document.body.classList.add("swal2-news-open");
+              "-webkit-backdrop-filter: blur(10px) !important;"
+            );
           }
+
+          let aplicandoBlur = false;
+          let blurObserver = null;
+
+          const aplicarBlur = () => {
+            if (aplicandoBlur) return;
+            aplicandoBlur = true;
+
+            const b = document.querySelector(".swal2-backdrop");
+
+            if (b && b.classList.contains("swal2-backdrop-news"))
+            {
+              b.setAttribute("style",
+                "position: fixed !important; inset: 0 !important; display: block !important; opacity: 1 !important; " +
+                "background: rgba(1, 22, 30, 0.55) !important; " +
+                "backdrop-filter: blur(10px) !important; " +
+                "-webkit-backdrop-filter: blur(10px) !important;"
+              );
+            }
+
+            aplicandoBlur = false;
+          };
+
+          aplicarBlur();
+          setTimeout(aplicarBlur, 0);
+          setTimeout(aplicarBlur, 50);
+          setTimeout(aplicarBlur, 150);
+
+          blurObserver = new MutationObserver(() => {
+            const bb = document.querySelector(".swal2-backdrop");
+            if (bb && bb.classList.contains("swal2-backdrop-news"))
+            {
+              bb.setAttribute("style",
+                "position: fixed !important; inset: 0 !important; display: block !important; opacity: 1 !important; " +
+                "background: rgba(1, 22, 30, 0.55) !important; " +
+                "backdrop-filter: blur(10px) !important; " +
+                "-webkit-backdrop-filter: blur(10px) !important;"
+              );
+            }
+          });
+
+          if (backdrop) blurObserver.observe(backdrop, { attributes: true });
+
+          window.blurObserverNews = blurObserver;
 
           const img = document.querySelector(".news-modal-banner img");
 
@@ -134,10 +197,22 @@
 
             if (img.complete) img.style.opacity = "1";
           }
-
         },
         didClose: () => {
+          const observer = window.blurObserverNews;
+
+          if (observer) { observer.disconnect(); window.blurObserverNews = null; }
+
+          const overlay = document.getElementById("news-modal-blur-overlay");
+
+          if (overlay) overlay.remove();
+
           document.body.classList.remove("swal2-news-open");
+          document.body.style.overflow = "";
+
+          const container = document.querySelector(".swal2-container");
+
+          if (container) container.classList.remove("swal2-container-news");
 
           const backdrop = document.querySelector(".swal2-backdrop");
 
@@ -148,10 +223,9 @@
 
           if (backdrop && backdrop.dataset.blurOriginal !== undefined)
           {
-            backdrop.style.cssText = backdrop.dataset.blurOriginal;
+            backdrop.setAttribute("style", backdrop.dataset.blurOriginal);
             delete backdrop.dataset.blurOriginal;
           }
-
         },
       });
     }

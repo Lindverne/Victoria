@@ -56,6 +56,7 @@ if (isset($_SESSION['usuario_id']))
     <title>Login | Victória</title>
 
     <?= csrfMetaTag() ?>
+    <meta name="google-client-id" content="1087916582224-j7qg76c2rv1an6kftr0n7dujov56p1m2.apps.googleusercontent.com">
 
     <script src="../assets/js/tema-boot.js"></script>
     <link rel="stylesheet" href="../assets/css/global/variables.css">
@@ -124,14 +125,8 @@ if (isset($_SESSION['usuario_id']))
 
                     <div class="separador-card">ou</div>
 
-                    <div class="botao-social-card google">
+                    <div class="botao-social-card google" id="btn-google-login">
                         <i class="fab fa-google"></i> Continuar com Google
-                        <span class="badge-em-breve">Em breve</span>
-                    </div>
-
-                    <div class="botao-social-card microsoft">
-                        <i class="fab fa-microsoft"></i> Continuar com Microsoft 365
-                        <span class="badge-em-breve">Em breve</span>
                     </div>
 
                 </form>
@@ -149,6 +144,26 @@ if (isset($_SESSION['usuario_id']))
     <script type="module" src="../assets/js/auth.js"></script>
     <script type="module" src="../assets/js/global.js"></script>
     <script type="module" src="../assets/js/pages/login.js"></script>
+
+    <script src="https://accounts.google.com/gsi/client" async defer crossorigin="anonymous" id="gsi-script"></script>
+    <script type="module">
+      import { iniciarLoginGoogle } from "../assets/js/components/login-google.js";
+
+      if (typeof google !== 'undefined' && google.accounts && google.accounts.id)
+      {
+        iniciarLoginGoogle();
+      }
+      else
+      {
+        const scriptGSI = document.getElementById('gsi-script');
+        if (scriptGSI)
+        {
+          scriptGSI.addEventListener('load', () => {
+            iniciarLoginGoogle();
+          });
+        }
+      }
+    </script>
 </body>
 
 </html>

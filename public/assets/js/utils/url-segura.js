@@ -1,4 +1,3 @@
-
 export function urlImagemSegura(valor)
 {
   if (typeof valor !== "string")
@@ -21,12 +20,26 @@ export function urlImagemSegura(valor)
     {
       return null;
     }
-
   }
 
-  if (url.startsWith("data:") && !url.startsWith("data:image/"))
+  if (url.startsWith("data:"))
   {
-    return null;
+    const mimeValidos = ["data:image/png", "data:image/jpeg", "data:image/gif", "data:image/webp"];
+    let ehMimeValido = false;
+
+    for (const mime of mimeValidos)
+    {
+      if (url.startsWith(mime))
+      {
+        ehMimeValido = true;
+        break;
+      }
+    }
+
+    if (!ehMimeValido)
+    {
+      return null;
+    }
   }
 
   return valor;
@@ -43,6 +56,20 @@ export function definirSrcSeguro(elemento, valor)
   const seguro = urlImagemSegura(valor);
 
   if (seguro === null)
+  {
+    return false;
+  }
+
+  const url = seguro.toLowerCase();
+  const ehUrlSegura =
+    url.startsWith("http:") ||
+    url.startsWith("https:") ||
+    url.startsWith("data:image/") ||
+    url.startsWith("/") ||
+    url.startsWith("./") ||
+    url.startsWith("../");
+
+  if (!ehUrlSegura)
   {
     return false;
   }

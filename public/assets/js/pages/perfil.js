@@ -432,12 +432,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const tipo = parseInt(userData.tipo_usuario) || 1;
       const config = {
         1: { label: "Usuário", icon: "fa-user", classe: "padrao" },
-        2: {
-          label: "Administrador",
-          icon: "fa-shield-halved",
-          classe: "admin",
-        },
-        3: { label: "Corporativo", icon: "fa-building", classe: "corporativo" },
       };
 
       const info = config[tipo] || config[1];
@@ -1481,24 +1475,7 @@ document.addEventListener("DOMContentLoaded", () => {
   {
     const userData = Auth.getCurrentUser();
 
-    if (userData && parseInt(userData.tipo_usuario) >= 2)
-    {
-      btnDeletarConta.disabled = true;
-      btnDeletarConta.title =
-        "Administradores não podem excluir a própria conta pelo perfil.";
-    }
-
     btnDeletarConta.addEventListener("click", () => {
-
-      if (btnDeletarConta.disabled)
-      {
-        Swal.fire(
-          "Ação não permitida",
-          "Administradores não podem excluir a própria conta pelo perfil.",
-          "warning",
-        );
-        return;
-      }
 
       Swal.fire({
         title: "Excluir minha conta?",

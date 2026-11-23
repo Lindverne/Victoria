@@ -22,11 +22,15 @@ ini_set('session.gc_maxlifetime', $duracao);
 ini_set('session.cookie_lifetime', $duracao);
 ini_set('session.use_strict_mode', 1);
 
+$https = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+$forward = !empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https';
+$ehSeguro = $https || $forward;
+
 session_set_cookie_params([
     'lifetime' => $duracao,
     'path' => '/',
     'domain' => '',
-    'secure' => (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'),
+    'secure' => $ehSeguro,
     'httponly' => true,
     'samesite' => 'Lax',
 ]);

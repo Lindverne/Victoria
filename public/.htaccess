@@ -12,7 +12,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ pages/404.php [L,QSA]
 
 # Custom 404 error page
-ErrorDocument 404 /Victoria/public/pages/404.php
+ErrorDocument 404 /pages/404.php
 
 # Allow access to static assets
 <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|pdf)$">

@@ -237,7 +237,6 @@ export async function checkAuthOnPageLoad()
     "dashboard.php",
     "relatorios.php",
     "perfil.php",
-    "admin.php",
   ];
 
   if (!protegidas.some((p) => page.includes(p))) return;
@@ -297,7 +296,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "dashboard.php",
     "relatorios.php",
     "perfil.php",
-    "admin.php",
   ];
 
   if (protegidas.some((p) => page.includes(p)))

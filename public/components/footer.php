@@ -18,7 +18,7 @@
             <h4>Conexão Técnica</h4>
             <p><i class="fa-solid fa-envelope"></i> projetovictoria@gmail.com</p>
             <p><i class="fa-solid fa-location-dot"></i> Etec Lauro Gomes: São Bernardo do Campo - SP</p>
-            <p><i class="fa-solid fa-code-branch"></i> Versão 0.9.8 - Phoenix</p>
+            <p><i class="fa-solid fa-code-branch"></i> Versao 1.0 - Eldreda</p>
         </div>
 
         <div class="footer-social">
@@ -28,6 +28,19 @@
                 <a href="#" data-rede-social="Instagram" data-imagem="instagram.png" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://github.com/Lindverne/Victoria" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="#" data-rede-social="LinkedIn" data-imagem="linkedin.png" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+
+            <div class="footer-circular">
+                <div class="circular-text" data-text="VERSÃO 1.0 * ELDREDA * " data-size="120" data-font-size="12" data-speed="12" data-direction="clockwise" data-fill="true">
+                    <div class="circular-text__tilt">
+                        <div class="circular-text__plane">
+                            <div class="circular-text__ring"></div>
+                            <div class="circular-text__center">
+                                <i class="fa-solid fa-droplet" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -47,6 +60,9 @@
         <div class="vw-plugin-top-wrapper"></div>
     </div>
 </div>
+<link rel="stylesheet" href="<?= ASSETS_URL ?>/css/components/circular-text.css">
+<script type="module" src="<?= ASSETS_URL ?>/js/components/circular-text.js"></script>
+
 <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');

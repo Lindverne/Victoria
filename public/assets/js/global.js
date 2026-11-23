@@ -41,7 +41,7 @@ function exibirBannerConsole()
       desenharImagem(devtools, 275, 275);
 
       console.log(
-        "%c 💧 Victória - Versão 0.9.8 - Phoenix",
+        "%c 💧 Victória - Versao 1.0 - Eldreda",
         "color: #eff6e0; font-weight: bold; font-size: 13px; padding-left: 3px; letter-spacing: 0.5px;",
       );
     }
@@ -49,7 +49,7 @@ function exibirBannerConsole()
     catch (erroBanner)
     {
       console.log(
-        "%cVictória - Versão 0.9.8 - Phoenix",
+        "%cVictória - Versao 1.0 - Eldreda",
         "color: #eff6e0; font-weight: bold; font-size: 13px;",
       );
     }
@@ -248,21 +248,15 @@ function initRedesSociais()
     });
   });
 
-  document
-    .querySelectorAll(".botao-social-card.google, .botao-social-card.microsoft")
-    .forEach((botao) => {
-      botao.addEventListener("click", () => {
-        const provedor = botao.classList.contains("google")
-          ? "Google"
-          : "Microsoft 365";
-
-        mostrarFuturo(
-          provedor,
-          `Ainda não temos login com ${provedor}, mas essa função vai estar disponível em breve!`,
-          botao.classList.contains("google") ? "google.png" : "microsoft.png",
-        );
-      });
+  document.querySelectorAll(".botao-social-card.google").forEach((botao) => {
+    botao.addEventListener("click", () => {
+      mostrarFuturo(
+        "Google",
+        `Ainda não temos login com Google, mas essa função vai estar disponível em breve!`,
+        "google.png",
+      );
     });
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
