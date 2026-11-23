@@ -34,6 +34,6 @@ function conectarBanco(): ?PDO
 
     catch (PDOException $erroConexao)
     {
-        return null;
+        throw $erroConexao;
     }
 }
