@@ -142,41 +142,45 @@
     </td>
   </tr>
   <tr>
-    <td align="center">
+    <td align="center" width="33%">
       <h3 align="center">🔐 Autenticação</h3>
       <p align="center">Login seguro com <strong>sessão PHP</strong>, cookie HTTP-only SameSite Lax e nível de acesso: Usuário.</p>
     </td>
-    <td align="center">
+    <td align="center" width="33%">
       <h3 align="center">📰 Notícias</h3>
       <p align="center">Painel de notícias com categorias, destaques, <strong>upload de imagens</strong> e modal de leitura com avatar do autor.</p>
     </td>
-  </tr>
-  <tr>
-    <td align="center">
+    <td align="center" width="33%">
       <h3 align="center">📱 Responsivo</h3>
       <p align="center">Layout adaptável em <strong>4 breakpoints</strong>: 1200px, 768px, 480px e 400px. Cobertura total mobile.</p>
     </td>
-    <td align="center">
+  </tr>
+  <tr>
+    <td align="center" width="33%">
       <h3 align="center">🎬 Animação</h3>
       <p align="center"><strong>Splash screen</strong> de entrada com partículas animadas, transições CSS fluidas e identidade visual marcante.</p>
     </td>
-    <td align="center">
+    <td align="center" width="33%">
       <h3 align="center">🎯 Metas</h3>
       <p align="center">Sistema de <strong>metas personalizadas</strong> de consumo com projeção mensal e barras de progresso inteligentes.</p>
     </td>
-  </tr>
-  <tr>
-    <td align="center">
+    <td align="center" width="33%">
       <h3 align="center">🌗 Modo Escuro</h3>
       <p align="center">Tema claro/escuro completo com <strong>crossfade suave</strong>, preferência salva no navegador e detecção automática do sistema.</p>
     </td>
-    <td align="center">
+  </tr>
+  <tr>
+    <td align="center" width="33%">
       <h3 align="center">📚 Documentação</h3>
       <p align="center">Página de documentação com <strong>6 fichamentos em PDF</strong> para visualizar e baixar direto do site.</p>
     </td>
-    <td align="center">
+    <td align="center" width="33%">
       <h3 align="center">📜 Termos de Serviço</h3>
-      <p align="center">Página de <strong>Termos e Ética</strong> linkada no rodapé e aceite obrigatório durante o cadastro.</p>
+      <p align="center">Página oficial de <strong>Termos, Condições e Ética</strong> linkada diretamente no rodapé com aceite obrigatório no cadastro.</p>
+    </td>
+    <td align="center" width="33%">
+      <h3 align="center">🔑 Recuperação de Senha</h3>
+      <p align="center">Fluxo completo de <strong>redefinição por e-mail</strong> com código de recuperação, rate-limit de solicitações e validação de nova senha.</p>
     </td>
   </tr>
 </table>
