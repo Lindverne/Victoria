@@ -1,11 +1,9 @@
-# =============================================================
 # Whitelist — só o essencial do repositório entra no git
-# =============================================================
 
 # Ignora TUDO na raiz...
 /*
 
-# ...exceto o núcleo do projeto
+# ...exceto as coisinhas essenciais do projeto :3
 !/api/
 !/public/
 !/tools/
@@ -13,10 +11,6 @@
 !/Dockerfile
 !/README.md
 !/.gitignore
-
-# =============================================================
-# Exclusões DENTRO das pastas mantidas
-# =============================================================
 
 # Sessões do PHP
 sessions/
@@ -50,16 +44,16 @@ stylelint.cache
 __pycache__/
 *.pyc
 
-# Uploads de notícias (gerados em runtime)
+# Uploads de notícias (No repositório, tudo truncado!)
 public/assets/img/pages/noticias/noticia_*.jpg
 public/assets/img/pages/noticias/noticia_*.png
 public/assets/img/pages/noticias/noticia_*.webp
 public/assets/img/pages/noticias/noticia_*.gif
 
-# Screenshots de teste do QA
+# Screenshots de testes antigos
 public/assets/img/teste-qa-*.png
 
-# Screenshots do navegador (ferramenta de teste)
+# Screenshots do navegador (ferramenta de testes feita pelo DSH)
 browser-screenshots/
 
 # Mnemon Memory
