@@ -473,7 +473,7 @@ Victoria/
 <h2 id="-banco" align="center">🗄 Banco de Dados</h2>
 
 <p align="center">
-  O Victoria utiliza <strong>5 tabelas</strong> no MySQL, modeladas para suportar autenticação multinível, histórico de consumo, auditoria e conteúdo editorial:
+  O Victoria utiliza <strong>4 tabelas</strong> no MySQL, modeladas para suportar autenticação multinível, histórico de consumo, auditoria e conteúdo editorial:
 </p>
 
 <br>
@@ -500,7 +500,7 @@ Victoria/
 <br>
 
 <details>
-  <summary><strong>🔐 Autenticação</strong> (4 endpoints — 2 públicos, 2 de sessão)</summary>
+  <summary><strong>🔐 Autenticação</strong> (6 endpoints — 4 públicos, 2 de sessão)</summary>
 
   <br>
 
@@ -510,6 +510,8 @@ Victoria/
   | POST | `/api/auth/cadastro.php` | Registro — cria conta com `password_hash()` |
   | POST | `/api/auth/logout.php` | Logout — limpa sessão e cookie |
   | GET | `/api/auth/sessao.php` | **Novo na v0.9** — retorna o perfil completo da sessão ativa |
+  | POST | `/api/auth/esqueceu-senha.php` | Solicita redefinição de senha por e-mail (código de recuperação) |
+  | POST | `/api/auth/redefinir-senha.php` | Redefine senha usando código de recuperação |
 
 </details>
 
@@ -554,7 +556,7 @@ Victoria/
 
 <br>
 
-> 📊 **Total: 11 endpoints** em 4 módulos — 4 públicos (incluindo login com Google) e 7 protegidos por sessão. Fora dos módulos, 2 utilitários de apoio: geração de `token CSRF` e checagem de sessão.
+> 📊 **Total: 14 endpoints** em 4 módulos — 7 públicos e 7 protegidos por sessão. Fora dos módulos, 2 utilitários de apoio: geração de `token CSRF` e checagem de sessão.
 
 <br>
 
