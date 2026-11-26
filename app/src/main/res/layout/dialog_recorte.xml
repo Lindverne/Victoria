@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    dialog_recorte.xml
+    ======================================================================
+    Tela de recorte de fotos (avatar e banner), usada pela TelaPerfil.
+    O ViewCropper no meio ocupa todo o espaço e mostra a foto atrás da
+    janela fixa (círculo para avatar, retângulo para banner).
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F201161E"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/recorte_titulo"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/recorte_dica"
+        android:textColor="@color/white_50"
+        android:textSize="12sp"/>
+
+    <!-- Área do recorte (view customizada do projeto) -->
+    <com.example.app_aqua.ViewCropper
+        android:id="@+id/viewCropper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancelarRecorte"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_input_field"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/recorte_cancelar"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_teal"
+            android:textStyle="bold"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnConfirmarRecorte"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/bg_btn_submit"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/recorte_confirmar"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</LinearLayout>

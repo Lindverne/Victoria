@@ -6,7 +6,7 @@ verificarCsrf();
 require_once __DIR__ . '/../config/conexao.php';
 require_once __DIR__ . '/../config/registrar-log.php';
 
-$dados = json_decode(file_get_contents('php://input'), true);
+$dados = obterDadosJsonRequisicao();
 
 if (empty($dados['data_leitura']) || !isset($dados['consumo_m3']))
 {

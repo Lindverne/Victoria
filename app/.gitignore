@@ -1,0 +1,18 @@
+# Android build outputs
+*.apk
+build/
+.gradle/
+.idea/
+local.properties
+
+# Android SDK instalado localmente (grande, regenerável)
+android-sdk/
+
+# Gradle wrapper JARs (opcional - alguns commitam, outros não)
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper-main.jar
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+*.log

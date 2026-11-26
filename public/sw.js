@@ -1,5 +1,6 @@
-/*
-const CACHE_NAME = "victoria-v2.4";
+/* Comentado por ora, pois é chato para um caramba ter que reiniciar a página 500 vezes para funcionar ;-;
+
+const CACHE_NAME = "hisako-kotobuki";
 const STATIC_ASSETS = [
   "./",
   "./assets/css/global/variables.css",
@@ -85,4 +86,5 @@ self.addEventListener("fetch", (event) => {
     }),
   );
 });
+
 */

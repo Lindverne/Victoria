@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgBackgroundCadastro"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_global"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#99000000"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardCadastro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/bg_glass_card"
+            android:elevation="12dp"
+            android:padding="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/btn_voltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cadastro_voltar"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textAllCaps="true"
+                android:fontFamily="@font/montserrat_medium"
+                app:drawableStartCompat="@drawable/ic_seta_esquerda"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <ImageView
+                android:id="@+id/imgLogoCadastro"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/logo_victoria"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintTop_toBottomOf="@id/btn_voltar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/txtCadastroTitulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/cadastro_titulo"
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                android:fontFamily="@font/montserrat_bold"
+                app:layout_constraintTop_toBottomOf="@id/imgLogoCadastro"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <View
+                android:id="@+id/divisorCadastro"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="#33FFFFFF"
+                app:layout_constraintTop_toBottomOf="@id/txtCadastroTitulo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/lblNomeCadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/cadastro_label_nome"
+                android:textColor="@color/white"
+                android:textAllCaps="true"
+                android:textSize="11sp"
+                android:fontFamily="@font/montserrat_semibold"
+                app:layout_constraintTop_toBottomOf="@id/divisorCadastro"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <EditText
+                android:id="@+id/txt_Nome"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/cadastro_hint_nome"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/ink_black"
+                android:textColorHint="#B0FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lblNomeCadastro" />
+
+            <TextView
+                android:id="@+id/lblEmailCadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/cadastro_label_email"
+                android:textColor="@color/white"
+                android:textAllCaps="true"
+                android:textSize="11sp"
+                android:fontFamily="@font/montserrat_semibold"
+                app:layout_constraintTop_toBottomOf="@id/txt_Nome"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <EditText
+                android:id="@+id/txt_Email"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/cadastro_hint_email"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/ink_black"
+                android:textColorHint="#B0FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lblEmailCadastro" />
+
+            <TextView
+                android:id="@+id/lblSenhaCadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/cadastro_label_senha"
+                android:textColor="@color/white"
+                android:textAllCaps="true"
+                android:textSize="11sp"
+                android:fontFamily="@font/montserrat_semibold"
+                app:layout_constraintTop_toBottomOf="@id/txt_Email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <EditText
+                android:id="@+id/txt_senhacad"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/cadastro_hint_senha"
+                android:inputType="textPassword"
+                android:paddingStart="16dp"
+                android:paddingEnd="48dp"
+                android:textColor="@color/ink_black"
+                android:textColorHint="#B0FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lblSenhaCadastro" />
+
+            <ImageButton
+                android:id="@+id/btnMostrarSenhaCadastro"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="6dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/cadastro_label_senha"
+                android:src="@drawable/ic_olho"
+                app:layout_constraintBottom_toBottomOf="@id/txt_senhacad"
+                app:layout_constraintEnd_toEndOf="@id/txt_senhacad"
+                app:layout_constraintTop_toTopOf="@id/txt_senhacad"
+                app:tint="@color/air_force_blue" />
+
+            <TextView
+                android:id="@+id/lblConfirmarSenhaCadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/cadastro_label_confirmar_senha"
+                android:textColor="@color/white"
+                android:textAllCaps="true"
+                android:textSize="11sp"
+                android:fontFamily="@font/montserrat_semibold"
+                app:layout_constraintTop_toBottomOf="@id/txt_senhacad"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <EditText
+                android:id="@+id/txt_senhaconf"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_field"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/cadastro_hint_confirmar_senha"
+                android:inputType="textPassword"
+                android:paddingStart="16dp"
+                android:paddingEnd="48dp"
+                android:textColor="@color/ink_black"
+                android:textColorHint="#B0FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lblConfirmarSenhaCadastro" />
+
+            <ImageButton
+                android:id="@+id/btnMostrarConfirmarSenhaCadastro"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="6dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/cadastro_label_confirmar_senha"
+                android:src="@drawable/ic_olho"
+                app:layout_constraintBottom_toBottomOf="@id/txt_senhaconf"
+                app:layout_constraintEnd_toEndOf="@id/txt_senhaconf"
+                app:layout_constraintTop_toTopOf="@id/txt_senhaconf"
+                app:tint="@color/air_force_blue" />
+
+            <CheckBox
+                android:id="@+id/checkTermosCadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:buttonTint="@color/soft_periwinkle"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/cadastro_termos_pre"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_senhaconf"
+                tools:text="Concordo com os termos" />
+
+            <TextView
+                android:id="@+id/linkTermosCadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/cadastro_termos_link"
+                android:textColor="@color/soft_periwinkle"
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat_semibold"
+                app:layout_constraintTop_toBottomOf="@id/checkTermosCadastro"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_cadastrar"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+
+                android:background="@drawable/bg_btn_submit"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+
+                android:padding="0dp"
+
+                android:text="@string/cadastro_btn_criar"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+
+                app:cornerRadius="16dp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linkTermosCadastro"
+                app:rippleColor="#117DA8" />
+
+            <TextView
+                android:id="@+id/separadorCadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="@string/cadastro_separador"
+                android:textColor="#CCFFFFFF"
+                android:textSize="12sp"
+                android:fontFamily="@font/montserrat_semibold"
+                app:layout_constraintTop_toBottomOf="@id/btn_cadastrar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/btnGoogleCadastro"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_btn_social_desativado"
+                android:gravity="center"
+                android:orientation="horizontal"
+
+                app:layout_constraintTop_toBottomOf="@id/separadorCadastro"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_google"
+                    android:contentDescription="@string/cadastro_google"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/cadastro_google"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/montserrat_semibold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_badge_em_breve"
+                    android:text="@string/cadastro_em_breve"
+                    android:textColor="@color/white"
+                    android:textSize="9sp"
+                    android:textAllCaps="true"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnMicrosoftCadastro"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_btn_social_desativado"
+                android:gravity="center"
+                android:orientation="horizontal"
+
+                app:layout_constraintTop_toBottomOf="@id/btnGoogleCadastro"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_microsoft"
+                    android:contentDescription="@string/cadastro_microsoft"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/cadastro_microsoft"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/montserrat_semibold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_badge_em_breve"
+                    android:text="@string/cadastro_em_breve"
+                    android:textColor="@color/white"
+                    android:textSize="9sp"
+                    android:textAllCaps="true"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtRodapeCadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:gravity="center"
+                android:text="@string/cadastro_rodape_pre"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:fontFamily="@font/montserrat_regular"
+                android:alpha="0.85"
+
+                app:layout_constraintTop_toBottomOf="@id/btnMicrosoftCadastro"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/linkLoginCadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="@string/cadastro_rodape_link"
+                android:textColor="@color/soft_periwinkle"
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat_bold"
+
+                app:layout_constraintTop_toBottomOf="@id/txtRodapeCadastro"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

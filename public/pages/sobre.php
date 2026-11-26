@@ -20,6 +20,7 @@ require_once dirname(__DIR__) . '/helpers/caminhos.php';
     <link rel="stylesheet" href="../assets/css/pages/sobre.css">
 
     <link rel="stylesheet" href="../assets/css/responsividade.css">
+    <link rel="stylesheet" href="../assets/css/components/logo-loop.css">
 
     <link rel="icon" href="../assets/img/favicon/icon-victoria.ico">
 
@@ -75,6 +76,107 @@ $heroSubtitle = 'Nossa Essência';
                             <p>Inovação radical, transparência de dados, sustentabilidade aplicada e excelência técnica.
                             </p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-stack-section">
+            <div class="container-box reveal">
+                <div class="section-header">
+                    <span class="category-tag">Tecnologias</span>
+                    <h2>Nosso Stack</h2>
+                </div>
+                <div class="logo-loop">
+                    <div class="logo-loop__track">
+                        <a class="logo-loop__item" href="#" aria-label="PHP">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/php.svg" alt="PHP" loading="lazy"></div>
+                            <span class="logo-loop__label">PHP</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="MySQL">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/mysql.svg" alt="MySQL" loading="lazy"></div>
+                            <span class="logo-loop__label">MySQL</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="JavaScript">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/js.svg" alt="JavaScript" loading="lazy"></div>
+                            <span class="logo-loop__label">JavaScript</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="CSS3">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/css.svg" alt="CSS3" loading="lazy"></div>
+                            <span class="logo-loop__label">CSS3</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="HTML5">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/html.svg" alt="HTML5" loading="lazy"></div>
+                            <span class="logo-loop__label">HTML5</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="Python">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/python.svg" alt="Python" loading="lazy"></div>
+                            <span class="logo-loop__label">Python</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="ESP32">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/esp32.svg" alt="ESP32" loading="lazy"></div>
+                            <span class="logo-loop__label">ESP32</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="ApexCharts">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/apex.svg" alt="ApexCharts" loading="lazy"></div>
+                            <span class="logo-loop__label">ApexCharts</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="SweetAlert2">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/sweet-alert.svg" alt="SweetAlert2" loading="lazy"></div>
+                            <span class="logo-loop__label">SweetAlert2</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="Git">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/git.svg" alt="Git" loading="lazy"></div>
+                            <span class="logo-loop__label">Git</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="GitHub">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/github.svg" alt="GitHub" loading="lazy"></div>
+                            <span class="logo-loop__label">GitHub</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="Java">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/java.svg" alt="Java" loading="lazy"></div>
+                            <span class="logo-loop__label">Java</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="VS Code">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/vsc.svg" alt="VS Code" loading="lazy"></div>
+                            <span class="logo-loop__label">VS Code</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="Android Studio">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/android-studio.svg" alt="Android Studio" loading="lazy"></div>
+                            <span class="logo-loop__label">Android Studio</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="Claude">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/claude.svg" alt="Claude" loading="lazy"></div>
+                            <span class="logo-loop__label">Claude</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="CropperJS">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/cropperjs.svg" alt="CropperJS" loading="lazy"></div>
+                            <span class="logo-loop__label">CropperJS</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="Font Awesome">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/font-awesome.svg" alt="Font Awesome" loading="lazy"></div>
+                            <span class="logo-loop__label">Font Awesome</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="html2canvas">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/html-2-canvas.svg" alt="html2canvas" loading="lazy"></div>
+                            <span class="logo-loop__label">html2canvas</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="jsPDF">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/jspdf.svg" alt="jsPDF" loading="lazy"></div>
+                            <span class="logo-loop__label">jsPDF</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="phpMyAdmin">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/phpmyadmin.svg" alt="phpMyAdmin" loading="lazy"></div>
+                            <span class="logo-loop__label">phpMyAdmin</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="WAMP">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/wamp64.svg" alt="WAMP" loading="lazy"></div>
+                            <span class="logo-loop__label">WAMP</span>
+                        </a>
+                        <a class="logo-loop__item" href="#" aria-label="XML">
+                            <div class="logo-loop__icon"><img src="../assets/img/pages/sobre/xml.svg" alt="XML" loading="lazy"></div>
+                            <span class="logo-loop__label">XML</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -210,6 +312,7 @@ require_once dirname(__DIR__) . '/components/footer.php';
     <script type="module" src="../assets/js/auth.js"></script>
     <script type="module" src="../assets/js/global.js"></script>
     <script type="module" src="../assets/js/pages/sobre.js"></script>
+    <script type="module" src="../assets/js/components/logo-loop.js"></script>
 </body>
 
 </html>

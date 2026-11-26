@@ -8,6 +8,8 @@
 !/public/
 !/tools/
 !/database/
+!/docs/
+!/app/
 !/Dockerfile
 !/README.md
 !/.gitignore

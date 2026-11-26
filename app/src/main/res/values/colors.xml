@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ink_black">#01161E</color>
+    <color name="dark_teal">#124559</color>
+    <color name="air_force_blue">#598392</color>
+    <color name="ash_grey">#AEC3B0</color>
+    <color name="beige">#EFF6E0</color>
+
+    <color name="fundo_principal">#EFF6E0</color>
+    <color name="texto_principal">#01161E</color>
+    <color name="texto_secundario">#124559</color>
+    <color name="cor_destaque">#124559</color>
+    <color name="cor_botao">#124559</color>
+    <color name="soft_periwinkle">#598392</color>
+    <color name="apricot_cream">#124559</color>
+    <color name="desert_sand">#AEC3B0</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="white_05">#0DFFFFFF</color>
+    <color name="white_10">#1AFFFFFF</color>
+    <color name="white_40">#66FFFFFF</color>
+    <color name="white_50">#80FFFFFF</color>
+    <color name="white_80">#CCFFFFFF</color>
+
+    <color name="glass_bg">#73FFFFFF</color>
+    <color name="glass_border">#26124559</color>
+
+    <color name="overlay_dark">#80000000</color>
+    <color name="shadow_ink">#1A01161E</color>
+
+    <color name="campo_borda">#33598392</color>
+    <color name="badge_borda">#4D8B8BC7</color>
+
+    <color name="cinza_claro">#F0F0F0</color>
+    <color name="cinza_medio">#E0E0E0</color>
+    <color name="transparente">#00000000</color>
+
+</resources>

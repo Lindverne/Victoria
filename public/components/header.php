@@ -36,9 +36,9 @@
                                 <span class="item-desc">Microcontroladores e sensores de precisão.</span>
                             </a>
 
-                            <a href="<?= BASE_URL ?>/pages/protocolos.php" class="rich-link-item" role="menuitem">
-                                <span class="item-title">Protocolos IoT</span>
-                                <span class="item-desc">Comunicação e integridade de dados.</span>
+                            <a href="<?= BASE_URL ?>/pages/aqua.php" class="rich-link-item" role="menuitem">
+                                <span class="item-title">App Aqua</span>
+                                <span class="item-desc">Monitoramento móvel de consumo de água.</span>
                             </a>
                         </div>
                         <div class="menu-column" role="none">
@@ -127,9 +127,9 @@
             <i class="fa-solid fa-microchip coluna-link-icon" aria-hidden="true"></i>
             <span class="coluna-link-texto">Especificação de Hardware</span>
         </a>
-        <a href="<?= BASE_URL ?>/pages/protocolos.php" class="coluna-link" role="menuitem">
-            <i class="fa-solid fa-layer-group coluna-link-icon" aria-hidden="true"></i>
-            <span class="coluna-link-texto">Protocolos IoT</span>
+        <a href="<?= BASE_URL ?>/pages/aqua.php" class="coluna-link" role="menuitem">
+            <i class="fa-solid fa-mobile-screen coluna-link-icon" aria-hidden="true"></i>
+            <span class="coluna-link-texto">App Aqua</span>
         </a>
         <a href="<?= BASE_URL ?>/pages/noticias.php" class="coluna-link" role="menuitem">
             <i class="fa-solid fa-newspaper coluna-link-icon" aria-hidden="true"></i>

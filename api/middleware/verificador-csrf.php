@@ -14,7 +14,7 @@ function verificarCsrf(): void
         
         if ($token === null && $method !== 'GET')
         {
-            $input = json_decode(file_get_contents('php://input'), true);
+            $input = obterDadosJsonRequisicao();
             $token = $input['csrf_token'] ?? null;
         }
         
@@ -31,4 +31,17 @@ function verificarCsrf(): void
 
     }
 
+}
+
+function obterDadosJsonRequisicao(): array
+{
+    static $dados = null;
+
+    if ($dados === null)
+    {
+        $corpo = file_get_contents('php://input');
+        $dados = json_decode($corpo, true) ?? [];
+    }
+
+    return $dados;
 }

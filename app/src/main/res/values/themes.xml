@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style
+        name="Theme.App_Aqua"
+        parent="Theme.Material3.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/dark_teal</item>
+        <item name="colorSecondary">@color/air_force_blue</item>
+
+        <item name="android:windowBackground">
+            @color/fundo_principal
+        </item>
+
+        <item name="android:statusBarColor">
+            @color/ink_black
+        </item>
+
+    </style>
+
+    <!-- Avatar circular da tela de perfil (usado pelo ShapeableImageView) -->
+    <style name="CirculoImagem">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+</resources>

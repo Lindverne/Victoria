@@ -1,3 +1,6 @@
+const DATA_IMAGE_BASE64_RE =
+  /^data:image\/(?:png|jpeg|jpg|gif|webp);base64,[A-Za-z0-9+/]*={0,2}$/i;
+
 export function urlImagemSegura(valor)
 {
   if (typeof valor !== "string")
@@ -5,46 +8,36 @@ export function urlImagemSegura(valor)
     return null;
   }
 
-  const url = valor.trim().toLowerCase();
+  const bruto = valor.trim();
 
-  if (url === "")
+  if (bruto === "")
   {
     return null;
   }
 
-  const schemesProibidos = ["javascript:", "vbscript:", "file:", "ftp:", "about:"];
-
-  for (const scheme of schemesProibidos)
+  if (bruto.startsWith("data:"))
   {
-    if (url.startsWith(scheme))
-    {
-      return null;
-    }
+    return DATA_IMAGE_BASE64_RE.test(bruto) ? bruto : null;
   }
 
-  if (url.startsWith("data:"))
+  try
   {
-    const mimeValidos = ["data:image/png", "data:image/jpeg", "data:image/gif", "data:image/webp"];
-    let ehMimeValido = false;
+    const url = new URL(bruto, window.location.origin);
+    const protocolo = url.protocol;
 
-    for (const mime of mimeValidos)
+    if (protocolo === "http:" || protocolo === "https:")
     {
-      if (url.startsWith(mime))
-      {
-        ehMimeValido = true;
-        break;
-      }
+      return url.toString();
     }
 
-    if (!ehMimeValido)
-    {
-      return null;
-    }
+    return null;
   }
 
-  return valor;
+  catch (e)
+  {
+    return null;
+  }
 }
-
 
 export function definirSrcSeguro(elemento, valor)
 {
@@ -56,20 +49,6 @@ export function definirSrcSeguro(elemento, valor)
   const seguro = urlImagemSegura(valor);
 
   if (seguro === null)
-  {
-    return false;
-  }
-
-  const url = seguro.toLowerCase();
-  const ehUrlSegura =
-    url.startsWith("http:") ||
-    url.startsWith("https:") ||
-    url.startsWith("data:image/") ||
-    url.startsWith("/") ||
-    url.startsWith("./") ||
-    url.startsWith("../");
-
-  if (!ehUrlSegura)
   {
     return false;
   }

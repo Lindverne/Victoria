@@ -5,7 +5,7 @@ require_once __DIR__ . '/../middleware/verificador-csrf.php';
 verificarCsrf();
 require_once __DIR__ . '/../config/conexao.php';
 
-$dados = json_decode(file_get_contents('php://input'), true);
+$dados = obterDadosJsonRequisicao();
 
 $camposPermitidos = ['nome', 'email', 'bio', 'cidade', 'profissao', 'website', 'avatar', 'wallpaper', 'telefone', 'data_nascimento'];
 $camposSet = [];
@@ -58,6 +58,34 @@ foreach ($camposPermitidos as $campo)
     }
 
     $val = trim((string) $dados[$campo]);
+
+    if ($campo === 'avatar' || $campo === 'wallpaper')
+    {
+        if (!preg_match('/^data:image\/(?:png|jpeg|jpg|gif|webp);base64,[A-Za-z0-9+\/]*={0,2}$/', $val))
+        {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'message' => "Formato de imagem inválido para $campo."]);
+            exit();
+        }
+
+        $imagemDecodificada = base64_decode(explode(',', $val)[1] ?? '', true);
+
+        if ($imagemDecodificada === false || strlen($imagemDecodificada) > 5 * 1024 * 1024)
+        {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'message' => "Imagem inválida ou excede 5 MB para $campo."]);
+            exit();
+        }
+
+        $info = getimagesizefromstring($imagemDecodificada);
+
+        if ($info === false)
+        {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'message' => "Não é uma imagem válida para $campo."]);
+            exit();
+        }
+    }
 
     if ($campo === 'nome' && $val === '')
     {

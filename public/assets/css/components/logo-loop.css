@@ -2,7 +2,29 @@
     position: relative;
     overflow: hidden;
     padding: 40px 0;
-    background: var(--fundo-principal);
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.logo-loop::before,
+.logo-loop::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.logo-loop::before {
+    left: 0;
+    background: linear-gradient(to right, var(--fundo-principal), transparent);
+}
+
+.logo-loop::after {
+    right: 0;
+    background: linear-gradient(to left, var(--fundo-principal), transparent);
 }
 
 .logo-loop__track {
@@ -36,10 +58,10 @@
     justify-content: center;
 }
 
-.logo-loop__icon svg {
+.logo-loop__icon img {
     width: 36px;
     height: 36px;
-    fill: currentColor;
+    display: block;
 }
 
 .logo-loop__label {
@@ -48,26 +70,6 @@
     letter-spacing: 0.3px;
     white-space: nowrap;
     color: var(--texto-principal);
-}
-
-.logo-loop__fade-left,
-.logo-loop__fade-right {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 80px;
-    pointer-events: none;
-    z-index: 2;
-}
-
-.logo-loop__fade-left {
-    left: 0;
-    background: linear-gradient(to right, var(--fundo-principal), transparent);
-}
-
-.logo-loop__fade-right {
-    right: 0;
-    background: linear-gradient(to left, var(--fundo-principal), transparent);
 }
 
 @keyframes logo-loop-scroll {
@@ -104,7 +106,7 @@
         height: 28px;
     }
 
-    .logo-loop__icon svg {
+    .logo-loop__icon img {
         width: 20px;
         height: 20px;
     }

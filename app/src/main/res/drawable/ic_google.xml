@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ícone neutro (letra "G" estilizada em traço único) para o botão "Continuar com Google".
+     Não é o logo oficial multicolorido do Google (evitando usar a marca registrada
+     exata) - é só um indicador visual simples, já que o botão fica desativado mesmo. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?attr/colorControlNormal">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M21.35,11.1h-9.17v2.96h5.34c-0.23,1.47 -1.7,4.31 -5.34,4.31 -3.21,0 -5.84,-2.66 -5.84,-5.94s2.62,-5.94 5.84,-5.94c1.83,0 3.06,0.78 3.76,1.45l2.56,-2.47C16.95,3.99 14.71,3 12.18,3 6.99,3 2.79,7.13 2.79,12.43s4.2,9.43 9.39,9.43c5.42,0 9.02,-3.81 9.02,-9.17 0,-0.62 -0.07,-1.09 -0.15,-1.59z" />
+</vector>

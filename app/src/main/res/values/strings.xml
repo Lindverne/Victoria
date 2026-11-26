@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Victoria</string>
+
+    <string-array name="spnrCategorias">
+        <item>Vulnerável</item>
+        <item>Social1</item>
+        <item>Social2</item>
+        <item>Residencial</item>
+        <item>Comercial</item>
+        <item>Assistencia</item>
+        <item>Publica</item>
+        <item>Rural</item>
+    </string-array>
+
+    <!-- ===================== SPLASH ===================== -->
+    <string name="splash_titulo">Bem-vindo(a) ao Victoria</string>
+    <string name="splash_subtitulo">Controle inteligente da sua água</string>
+    <string name="splash_descricao">Sistema de monitoramento em tempo real para otimizar o consumo de água em residências e condomínios.</string>
+    <string name="splash_btn_entrar">Já tenho uma conta</string>
+    <string name="splash_btn_cadastrar">Criar conta no Victoria</string>
+
+    <!-- ===================== INDEX / HOME ===================== -->
+    <string name="index_hero_subtitulo">Projeto Victoria</string>
+    <string name="index_hero_titulo">Controle inteligente da sua água</string>
+    <string name="index_hero_descricao">Sistema de monitoramento em tempo real para otimizar o consumo de água em residências e condomínios.</string>
+
+    <string name="index_categoria_tag">Características Principais</string>
+    <string name="index_secao_titulo">Especificações do Sistema</string>
+
+    <string name="spec1_titulo">Medição Precisa</string>
+    <string name="spec1_desc">Sensor de fluxo de alta precisão para leitura exata do consumo de água em tempo real.</string>
+
+    <string name="spec2_titulo">Conectividade IoT</string>
+    <string name="spec2_desc">Transmissão de dados via Wi-Fi ou LoRa para acesso remoto e monitoramento contínuo.</string>
+
+    <string name="spec3_titulo">Alertas Inteligentes</string>
+    <string name="spec3_desc">Notificações automáticas para detecção de vazamentos e picos de consumo anormais.</string>
+
+    <string name="spec4_titulo">Eficiência Energética</string>
+    <string name="spec4_desc">Bateria de longa duração com otimização inteligente de consumo de energia.</string>
+
+    <string name="spec5_titulo">Análise de Dados</string>
+    <string name="spec5_desc">Dashboard intuitivo com gráficos e relatórios para análise de padrões de consumo.</string>
+
+    <string name="spec6_titulo">Segurança de Dados</string>
+    <string name="spec6_desc">Criptografia end-to-end para proteger suas informações de consumo e privacidade.</string>
+
+    <!-- ===================== LOGIN ===================== -->
+    <string name="login_voltar">Voltar</string>
+    <string name="login_titulo">Bem-vindo(a) de volta!</string>
+    <string name="login_label_email">E-mail</string>
+    <string name="login_hint_email">seu@email.com</string>
+    <string name="login_label_senha">Senha</string>
+    <string name="login_hint_senha">Sua senha</string>
+    <string name="login_esqueci_senha">Esqueci minha senha</string>
+    <string name="login_sem_conta">Não tem uma conta? Crie uma agora!</string>
+    <string name="login_btn_entrar">Entrar no Victoria</string>
+    <string name="login_separador">ou</string>
+    <string name="login_google">Continuar com Google</string>
+    <string name="login_microsoft">Continuar com Microsoft 365</string>
+    <string name="login_em_breve">Em breve</string>
+    <string name="login_rodape">© 2026 Projeto Victoria.</string>
+    <string name="login_testemunho">"A navegação autônoma transformou a forma como compreendemos a tecnologia."</string>
+    <string name="login_testemunho_autor">Projeto Victoria • Engenharia Inovadora</string>
+
+    <!-- ===================== CADASTRO ===================== -->
+    <string name="cadastro_voltar">Voltar</string>
+    <string name="cadastro_titulo">Criar sua conta</string>
+    <string name="cadastro_label_nome">Nome Completo</string>
+    <string name="cadastro_hint_nome">Seu nome completo</string>
+    <string name="cadastro_label_email">E-mail</string>
+    <string name="cadastro_hint_email">seu@email.com</string>
+    <string name="cadastro_label_senha">Senha</string>
+    <string name="cadastro_hint_senha">Sua senha</string>
+    <string name="cadastro_label_confirmar_senha">Confirmar Senha</string>
+    <string name="cadastro_hint_confirmar_senha">Confirme a senha</string>
+    <string name="cadastro_termos_pre">Concordo com os </string>
+    <string name="cadastro_termos_link">Termos de Serviço</string>
+    <string name="cadastro_btn_criar">Criar Conta no Victoria</string>
+    <string name="cadastro_separador">ou</string>
+    <string name="cadastro_google">Continuar com Google</string>
+    <string name="cadastro_microsoft">Continuar com Microsoft 365</string>
+    <string name="cadastro_em_breve">Em breve</string>
+    <string name="cadastro_rodape_pre">Já tem conta? </string>
+    <string name="cadastro_rodape_link">Faça login aqui</string>
+    <string name="cadastro_testemunho">"Juntar-se ao Victoria foi uma decisão que transformou minha experiência."</string>
+    <string name="cadastro_testemunho_autor">Comunidade Victoria • Inovadores</string>
+
+    <!-- ===================== DASHBOARD ===================== -->
+    <string name="dash_titulo">Bem-vindo ao seu Dashboard</string>
+    <string name="dash_subtitulo">Análise detalhada de vazão e tarifação.</string>
+    <string name="dash_data_placeholder">-- de --- de ----</string>
+
+    <string name="dash_card_consumo_titulo">Consumo Mensal</string>
+    <string name="dash_card_consumo_valor">0.00 m³</string>
+    <string name="dash_card_custo_titulo">Custo Estimado</string>
+    <string name="dash_card_custo_valor">R$ 0,00</string>
+    <string name="dash_card_economia_titulo">Sustentabilidade</string>
+    <string name="dash_card_economia_valor">0 L</string>
+
+    <string name="dash_painel_registro_titulo">Registro Manual</string>
+    <string name="dash_label_categoria">Categoria da Tarifa</string>
+    <string name="dash_hint_categoria">Selecione a categoria…</string>
+    <string name="dash_label_leitura_anterior">Leitura Anterior (m³)</string>
+    <string name="dash_hint_leitura_anterior">Ex: 120</string>
+    <string name="dash_label_leitura_atual">Leitura Atual (m³)</string>
+    <string name="dash_hint_leitura_atual">Ex: 135</string>
+    <string name="dash_btn_calcular">Calcular Consumo</string>
+
+    <string name="dash_resultado_consumo">Consumo:</string>
+    <string name="dash_resultado_agua">Água:</string>
+    <string name="dash_resultado_esgoto">Esgoto (100%):</string>
+    <string name="dash_resultado_total">Total:</string>
+    <string name="dash_resultado_zero_m3">0.00 m³</string>
+    <string name="dash_resultado_zero_reais">R$ 0,00</string>
+
+    <string name="dash_painel_grafico_titulo">Análise de Consumo</string>
+    <string name="dash_filtro_7dias">7 dias</string>
+    <string name="dash_filtro_30dias">30 dias</string>
+
+    <!-- ===================== RELATÓRIOS ===================== -->
+    <string name="relatorios_titulo">Relatórios de Consumo</string>
+    <string name="relatorios_subtitulo">Histórico dos cálculos feitos no seu Dashboard.</string>
+    <string name="relatorios_resumo_titulo">Resumo</string>
+    <string name="relatorios_stat_calculos">Cálculos</string>
+    <string name="relatorios_stat_consumo_total">Consumo Total</string>
+    <string name="relatorios_stat_custo_total">Custo Total</string>
+    <string name="relatorios_stat_consumo_medio">Consumo Médio</string>
+    <string name="relatorios_lista_titulo">Histórico de Cálculos</string>
+    <string name="relatorios_vazio">Nenhum cálculo registrado ainda.\nFaça uma leitura no Dashboard para gerar seus relatórios.</string>
+
+    <!-- ===================== PERFIL ===================== -->
+    <string name="perfil_btn_wallpaper">Alterar Wallpaper</string>
+    <string name="perfil_nome_carregando">Carregando…</string>
+    <string name="perfil_username_placeholder">@usuario</string>
+    <string name="perfil_email_placeholder">email@exemplo.com</string>
+    <string name="perfil_btn_editar">Editar Perfil</string>
+    <string name="perfil_bio_placeholder">Adicione uma descrição ao seu perfil</string>
+
+    <string name="perfil_meta_website">Website</string>
+    <string name="perfil_meta_data_indisponivel">Data não disponível</string>
+
+    <string name="perfil_stat_consumo_titulo">Consumo Mensal</string>
+    <string name="perfil_stat_consumo_valor">0 L</string>
+    <string name="perfil_stat_economia_titulo">Economia</string>
+    <string name="perfil_stat_economia_valor">0 L</string>
+    <string name="perfil_stat_eficiencia_titulo">Eficiência</string>
+    <string name="perfil_stat_eficiencia_valor">0%</string>
+    <string name="perfil_stat_pontuacao_titulo">Pontuação</string>
+    <string name="perfil_stat_pontuacao_valor">0 pts</string>
+
+    <string name="perfil_atividade_titulo">Atividade Recente</string>
+
+    <!-- ===================== NAVEGAÇÃO (BARRA DE ABAS) ===================== -->
+    <string name="nav_inicio">Início</string>
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_perfil">Perfil</string>
+    <string name="nav_relatorios">Relatórios</string>
+    <string name="perfil_em_breve">Funcionalidade em breve!</string>
+
+    <!-- ===================== CARROSSEL (TELA INÍCIO) ===================== -->
+    <string name="slide2_tag">Medição Inteligente</string>
+    <string name="slide2_titulo">Use o leitor físico</string>
+    <string name="slide2_desc">O leitor instalado na tubulação mede o consumo e envia as leituras automaticamente para o seu painel.</string>
+
+    <!-- ===================== PERFIL: FOTOS (AVATAR / BANNER) ===================== -->
+    <string name="perfil_img_erro_processar">Não foi possível abrir a imagem escolhida.</string>
+    <string name="perfil_img_erro_upload">Erro ao enviar a imagem. Tente novamente.</string>
+
+    <!-- ===================== RECORTE DE FOTOS (AVATAR / BANNER) ===================== -->
+    <string name="recorte_titulo">Ajuste a foto</string>
+    <string name="recorte_dica">Arraste para posicionar e use dois dedos para dar zoom</string>
+    <string name="recorte_cancelar">Cancelar</string>
+    <string name="recorte_confirmar">Confirmar</string>
+
+    <!-- ===================== EDITAR PERFIL (METADADOS) ===================== -->
+    <string name="editar_titulo">Editar Perfil</string>
+    <string name="editar_label_bio">Descrição</string>
+    <string name="editar_label_cidade">Cidade</string>
+    <string name="editar_label_profissao">Profissão</string>
+    <string name="editar_label_website">Website</string>
+    <string name="editar_label_telefone">Telefone</string>
+    <string name="editar_label_data">Data de Nascimento</string>
+    <string name="editar_cancelar">Cancelar</string>
+    <string name="editar_salvar">Salvar</string>
+    <string name="perfil_erro_atualizar">Não foi possível salvar as alterações.</string>
+
+    <!-- ===================== SAIR DA CONTA ===================== -->
+    <string name="perfil_btn_sair">Sair da conta</string>
+    <string name="sair_titulo">Encerrar sessão</string>
+    <string name="sair_mensagem">Tem certeza que deseja sair da sua conta?</string>
+    <string name="sair_cancelar">Cancelar</string>
+    <string name="sair_confirmar">Sair</string>
+
+</resources>
